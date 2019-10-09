@@ -30,33 +30,66 @@
     <body>
         <!-- Insertion de la navBar-->
         <div class="container">
-            <div class="card">
+            <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
                     <p>Bonjour "Nom de la personne a recup", bienvenue dans votre espace client <br>
                         Style bg à mettre</p>
                 </div>
             </div>
         </div>
-        
+
         <br>
         <br>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    
+                    <hr>
+                    <br>
+                    <br>
+
+                    <h3>Votre compte</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>N° de compte</th>
+                                <th>Solde</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>info client à recup</td>
+                            <td>info client à récup</td>
+                        </tbody>
+
+
+                    </table>
+
+                    <br>
+                    <br>
+                    <hr>
+
                 </div>
 
-                
+
 
                 <div class="col-sm-4">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Contacter votre conseiller</div>
+                    <div>
+                        <button class="btn btn-primary btn-block">Consulter mon compte</button>
+                        <br>
+                        <button class="btn btn-primary btn-block">Demande de découvert</button>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                        <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
                             <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary btn-block">Par Mail</button>
-                            <button class="btn btn-primary btn-block">Par Message</button>
+                            <button class="btn btn-primary ">Par Mail</button>
+                            <button class="btn btn-primary ">Par Message</button>
                         </div>
                     </div>
                 </div>
