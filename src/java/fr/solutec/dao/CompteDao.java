@@ -11,9 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -43,6 +40,28 @@ public class CompteDao {
         }
 
         return c;
+    }
+    
+    public static Compte InsertLastCompte() throws SQLException{
+        
+        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert) VALUES (0, 0, 1, 0)";
+        Connection connexion = AccessBD.getConnection();
+        PreparedStatement requette1 = connexion.prepareStatement(sql1);
+        requette1.execute();
+        
+        Compte compte = new Compte();
+        String sql2 = "SELECT * FROM compte ORDER BY idcompte DESC LIMIT 1";
+        PreparedStatement requette2 = connexion.prepareStatement(sql2);
+        ResultSet rs2 = requette2.executeQuery(sql2);
+        
+        if(rs2.next()){
+            compte.setIdcompte(rs2.getInt("idcompte"));
+            compte.setSolde(rs2.getDouble("solde"));
+            compte.setCarte(rs2.getInt("carte"));
+            compte.setStatut(rs2.getBoolean("statut"));
+            compte.setDecouvert(rs2.getDouble("decouvert"));
+        }
+        return compte;
     }
     
 }
