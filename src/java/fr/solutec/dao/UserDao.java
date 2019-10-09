@@ -18,8 +18,10 @@ import java.util.List;
  *
  * @author Joel B
  */
-public class UserDao {
 
+
+public class UserDao {
+/*
     public static Client getByLoginPass(String login, String mdp) throws SQLException {
         Client resultat = null;
 
@@ -41,15 +43,18 @@ public class UserDao {
         }
         return resultat;
     }
+*/
 
-    public static void insertClient(Client person) throws SQLException {
-        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp) VALUES (?, ?, ?, ?, ?)";
+    public static void insertClient(Client client) throws SQLException {
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql);
-        requette.setString(1, person.getNom());
-        requette.setString(2, person.getPrenom());
-        requette.setString(3, person.getEmail());
+        requette.setString(1, client.getPersonne().getNom());
+        requette.setString(2, personne.getPrenom());
+        requette.setString(3, personne.getEmail());
         requette.setString(4, person.getSexe());
+        requette.setString(5, person.getMdp());
+        requette.setString(5, person.getMdp());
         requette.setString(5, person.getMdp());
 
         requette.execute();
