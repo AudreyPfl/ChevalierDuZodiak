@@ -5,7 +5,7 @@
  */
 package fr.solutec.dao;
 
-import fr.solutec.bean.Client;
+import fr.solutec.bean.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,7 +46,8 @@ public class UserDao {
 */
 
     public static void insertClient(Client client) throws SQLException {
-        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+ 
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql);
         requette.setString(1, client.getPersonne().getNom());
@@ -57,11 +58,10 @@ public class UserDao {
         requette.setInt(6, client.getIdcompte());
         requette.setInt(7, client.getIdconseiller());
         requette.setBoolean(8, client.isStatut());
-        
-
+       
         requette.execute();
     }
-    
+    /*
     public static List<Client> getAllClient() throws SQLException {
         List<Client> result = new ArrayList<>();
 
@@ -83,5 +83,44 @@ public class UserDao {
         }
 
         return result;
+    }
+    */
+    /*
+    public static ConseillerNbClient(Conseiller cons) throws SQLException {
+        
+        int NbClient = 0;
+        String sql = "SELECT COUNT(*) FROM client WHERE idconseiller=" + cons.getIdconseiller();
+        Connection connexion = AccessBD.getConnection();
+
+        Statement requette = connexion.createStatement();
+
+        ResultSet rs = requette.executeQuery(sql);
+        
+        if(rs.next()){
+            NbClient = rs.;
+        }
+        return NbClient;
+    }
+    */
+    public static Compte InsertLastCompte() throws SQLException{
+        
+        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert) VALUES (0, 0, 1, 0)";
+        Connection connexion = AccessBD.getConnection();
+        PreparedStatement requette1 = connexion.prepareStatement(sql1);
+        requette1.execute();
+        
+        Compte compte = new Compte();
+        String sql2 = "SELECT * FROM compte ORDER BY idcompte DESC LIMIT 1";
+        PreparedStatement requette2 = connexion.prepareStatement(sql2);
+        ResultSet rs2 = requette2.executeQuery(sql2);
+        
+        if(rs2.next()){
+            compte.setIdcompte(rs2.getInt("idcompte"));
+            compte.setSolde(rs2.getDouble("solde"));
+            compte.setCarte(rs2.getInt("carte"));
+            compte.setStatut(rs2.getBoolean("statut"));
+            compte.setDecouvert(rs2.getDouble("decouvert"));
+        }
+        return compte;
     }
 }
