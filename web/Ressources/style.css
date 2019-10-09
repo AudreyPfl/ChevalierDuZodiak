@@ -6,7 +6,7 @@ and open the template in the editor.
 /* 
     Created on : 9 oct. 2019, 13:43:25
     Author     : stagiaire
-*/
+*//*
 .background{
     background-image: url(bank.jpg);
     background-size: cover;
@@ -19,7 +19,7 @@ and open the template in the editor.
   background-repeat: no-repeat;
  
 }
-/*
+
 .over{
     z-index: 2;
     text-align: center;
