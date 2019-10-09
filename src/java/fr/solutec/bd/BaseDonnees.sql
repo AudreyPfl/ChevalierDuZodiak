@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 09 oct. 2019 à 12:19
+-- Généré le :  mer. 09 oct. 2019 à 13:23
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `mdp` varchar(45) NOT NULL,
   `idcompte` int(11) NOT NULL,
   `idconseiller` int(11) NOT NULL,
+  `statut` tinyint(4) NOT NULL,
   PRIMARY KEY (`idclient`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `idcompte_UNIQUE` (`idcompte`),
