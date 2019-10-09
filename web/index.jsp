@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="Ressources/style.css">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body background = "Ressources/bank.jpg">
 
         <div>
             <nav class="navbar navbar-dark bg-dark ">
@@ -42,7 +42,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">Connection</h5>
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">&nbsp &nbsp &nbsp Connection</h5>
                         <hr>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
