@@ -25,3 +25,9 @@ and open the template in the editor.
     text-align: center;
 }
 */
+
+.modal-header {
+  background-color: darkcyan;
+  color: white;
+  font-family: cursive;
+  }

@@ -18,25 +18,59 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="">BangBank</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="my-sm-2">
-                        <button class="btn btn-primary" style="color: darkturquoise">S'inscrire</button>
-
-                    </div>
-                    <div class="my-sm-0">
-                        <button class="btn btn-primary" style="color: darkturquoise" data-toggle="modal" data-target="#connection">Se connecter</button>
-                    </div>
-
+       <div>
+            <nav class="navbar navbar-dark bg-dark ">
+                <a class="navbar-brand" style="color: white">BangBank</a>
+                <form class="form-inline">
+                    <img src="http://placehold.it/150x50?text=Logo" alt="">
+                    <button class="btn btn-primary" style="color: darkturquoise">Se déconnecter</button>                    
                 </form>
+            </nav>
+        </div>
+
+        <script>
+            $("#connect").on("click", function (e) {
+                e.preventDefault();
+                $('#connection').modal('show');
+            })
+        </script>
+
+
+        <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">Connection</h5>
+                        <hr>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="register">
+                            <div class="form-group">
+
+                                <input class="form-control text-center"
+                                       name="mail" value="${param['mail']}"
+                                       type="email" placeholder="e-mail" required="">
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                        <button type="button" class="btn btn-primary">Se connecter</button>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </div>
+
     </body>
 </html>
