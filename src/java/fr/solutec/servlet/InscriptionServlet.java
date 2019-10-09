@@ -81,8 +81,12 @@ public class InscriptionServlet extends HttpServlet {
         String email = request.getParameter("email");
         String sexe = request.getParameter("sexe");
         String mdp = request.getParameter("mdp");
+        int idcompte = 1;
+        int idconseiller = 1;
+        boolean statut = false;
         
-        Client c = new Client(nom, prenom, email, sexe, mdp);
+        Personne p = new Personne(nom, prenom, email, sexe, mdp);
+        Client c = new Client(p, idcompte, idconseiller, statut);
         
         try {
             UserDao.insertClient(c);

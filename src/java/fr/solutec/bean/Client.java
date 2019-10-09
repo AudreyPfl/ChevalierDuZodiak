@@ -14,22 +14,25 @@ public class Client {
     private Personne personne;
     private int idcompte;
     private int idconseiller;
+    private boolean statut;
 
     public Client() {
     }
 
-    public Client(int idclient, Personne personne, int idcompte, int idconseiller) {
+    public Client(int idclient, Personne personne, int idcompte, int idconseiller, boolean statut) {
         this.idclient = idclient;
         this.personne = personne;
         this.idcompte = idcompte;
         this.idconseiller = idconseiller;
+        this.statut = statut;
      
     }
 
-    public Client(Personne personne, int idcompte, int idconseiller) {
+    public Client(Personne personne, int idcompte, int idconseiller, boolean statut) {
         this.personne = personne;
         this.idcompte = idcompte;
         this.idconseiller = idconseiller;
+        this.statut = statut;
     }
     
     
@@ -66,10 +69,20 @@ public class Client {
         this.idconseiller = idconseiller;
     }
 
+    public boolean isStatut() {
+        return statut;
+    }
+
+    public void setStatut(boolean statut) {
+        this.statut = statut;
+    }
+
     @Override
     public String toString() {
-        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idcompte=" + idcompte + ", idconseiller=" + idconseiller + '}';
+        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idcompte=" + idcompte + ", idconseiller=" + idconseiller + ", statut=" + statut + '}';
     }
+
+
 
     
     

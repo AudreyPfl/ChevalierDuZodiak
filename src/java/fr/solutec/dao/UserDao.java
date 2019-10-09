@@ -46,21 +46,23 @@ public class UserDao {
 */
 
     public static void insertClient(Client client) throws SQLException {
-        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql);
         requette.setString(1, client.getPersonne().getNom());
-        requette.setString(2, personne.getPrenom());
-        requette.setString(3, personne.getEmail());
-        requette.setString(4, person.getSexe());
-        requette.setString(5, person.getMdp());
-        requette.setString(5, person.getMdp());
-        requette.setString(5, person.getMdp());
+        requette.setString(2, client.getPersonne().getPrenom());
+        requette.setString(3, client.getPersonne().getEmail());
+        requette.setString(4, client.getPersonne().getSexe());
+        requette.setString(5, client.getPersonne().getMdp());
+        requette.setInt(6, client.getIdcompte());
+        requette.setInt(7, client.getIdconseiller());
+        requette.setBoolean(8, client.isStatut());
+        
 
         requette.execute();
     }
-
-    public static List<Client> getAllUsers() throws SQLException {
+    
+    public static List<Client> getAllClient() throws SQLException {
         List<Client> result = new ArrayList<>();
 
         String sql = "SELECT * FROM user";
@@ -82,5 +84,4 @@ public class UserDao {
 
         return result;
     }
-
 }

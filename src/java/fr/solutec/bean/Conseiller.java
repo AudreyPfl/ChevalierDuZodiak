@@ -80,9 +80,9 @@ public class Conseiller {
         return "Conseiller{" + "idconseiller=" + idconseiller + ", personne=" + personne + ", idadmin=" + idadmin + ", statut=" + statut + '}';
     }
     
-    
-
-
-    
-    
+    public Conseiller attribConseiller(){
+        Conseiller c = new Conseiller();
+        
+        return c;
+    }
 }
