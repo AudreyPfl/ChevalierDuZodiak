@@ -37,19 +37,20 @@ public class UserDao {
             resultat.setId(rs.getInt("iduser"));
             resultat.setNom(rs.getString("nom"));
             resultat.setPrenom(rs.getString("prenom"));
-            resultat.setMail(rs.getString("mail"));
+            resultat.setEmail(rs.getString("email"));
         }
         return resultat;
     }
 
-    public static void insert(Client person) throws SQLException {
-        String sql = "INSERT INTO user (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+    public static void insertClient(Client person) throws SQLException {
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp) VALUES (?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql);
         requette.setString(1, person.getNom());
         requette.setString(2, person.getPrenom());
-        requette.setString(3, person.getMail());
-        requette.setString(4, person.getMdp());
+        requette.setString(3, person.getEmail());
+        requette.setString(4, person.getSexe());
+        requette.setString(5, person.getMdp());
 
         requette.execute();
     }
@@ -69,7 +70,7 @@ public class UserDao {
             u.setId(rs.getInt("iduser"));
             u.setNom(rs.getString("nom"));
             u.setPrenom(rs.getString("prenom"));
-            u.setMail(rs.getString("mail"));
+            u.setEmail(rs.getString("mail"));
 
             result.add(u);
         }

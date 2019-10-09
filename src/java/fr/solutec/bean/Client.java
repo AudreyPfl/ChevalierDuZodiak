@@ -10,24 +10,26 @@ package fr.solutec.bean;
  * @author esic
  */
 public class Client {
-      private int id;
+    private int id;
     private String nom;
     private String prenom;
-    private String mail;
+    private String email;
+    private String sexe;
     private String mdp;
 
     public Client() {
     }
 
     public Client(String mail, String mdp) {
-        this.mail = mail;
+        this.email = email;
         this.mdp = mdp;
     }
 
-    public Client(String nom, String prenom, String mail, String mdp) {
+    public Client(String nom, String prenom, String mail, String sexe, String mdp) {
         this.nom = nom;
         this.prenom = prenom;
-        this.mail = mail;
+        this.email = email;
+        this.sexe = sexe;
         this.mdp = mdp;
     }
 
@@ -56,12 +58,12 @@ public class Client {
     }
 
     
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getMdp() {
@@ -72,9 +74,17 @@ public class Client {
         this.mdp = mdp;
     }
 
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp + '}';
+        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", mdp=" + mdp + '}';
     }
     
     
