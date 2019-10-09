@@ -12,19 +12,19 @@ package fr.solutec.bean;
 public class Personne {
     private String nom;
     private String prenom;
-    private String mail;
-    private String mdp;
+    private String email;
     private String sexe; 
+    private String mdp;
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom, String mail, String mdp, String sexe) {
+    public Personne(String nom, String prenom, String email, String mdp, String sexe) {
         this.nom = nom;
         this.prenom = prenom;
-        this.mail = mail;
-        this.mdp = mdp;
+        this.email = email;
         this.sexe = sexe;
+        this.mdp = mdp;
     }
 
     public String getNom() {
@@ -35,8 +35,8 @@ public class Personne {
         return prenom;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
     public String getMdp() {
@@ -55,8 +55,8 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String mail) {
+        this.email = email;
     }
 
     public void setMdp(String mdp) {
@@ -69,7 +69,7 @@ public class Personne {
 
     @Override
     public String toString() {
-        return "Personne{" + "nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp + ", sexe=" + sexe + '}';
+        return "Personne{" + "nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", mdp=" + mdp + ", sexe=" + sexe + '}';
     }
     
      
