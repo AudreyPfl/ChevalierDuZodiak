@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 09 oct. 2019 à 11:15
+-- Généré le :  mer. 09 oct. 2019 à 12:19
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -32,7 +32,7 @@ USE `mydb`;
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
-  `idadmin` int(11) NOT NULL,
+  `idadmin` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) NOT NULL,
   `prenom` varchar(45) NOT NULL,
   `sexe` varchar(45) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`idadmin`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `conseiller` (
   `sexe` varchar(45) NOT NULL,
   `mdp` varchar(45) NOT NULL,
   `idadmin` int(11) NOT NULL,
+  `statut` tinyint(4) NOT NULL,
   PRIMARY KEY (`idconseiller`),
   KEY `fk_admin1_idx` (`idadmin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -110,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `conseiller` (
 
 DROP TABLE IF EXISTS `historique`;
 CREATE TABLE IF NOT EXISTS `historique` (
-  `idhistorique` int(11) NOT NULL,
+  `idhistorique` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `idadmin` int(11) DEFAULT NULL,
   `idconseiller` int(11) DEFAULT NULL,
@@ -131,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `historique` (
 
 DROP TABLE IF EXISTS `typehisto`;
 CREATE TABLE IF NOT EXISTS `typehisto` (
-  `idtypeHisto` int(11) NOT NULL,
+  `idtypeHisto` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`idtypeHisto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -166,4 +167,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

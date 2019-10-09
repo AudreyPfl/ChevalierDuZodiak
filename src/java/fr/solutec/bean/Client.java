@@ -10,72 +10,70 @@ package fr.solutec.bean;
  * @author esic
  */
 public class Client {
-      private int id;
-    private String nom;
-    private String prenom;
-    private String mail;
-    private String mdp;
+    private int idclient;
+    private Personne personne;
+    private int idcompte;
+    private int idconseiller;
 
     public Client() {
     }
 
-    public Client(String mail, String mdp) {
-        this.mail = mail;
-        this.mdp = mdp;
+    public Client(int idclient, Personne personne, int idcompte, int idconseiller) {
+        this.idclient = idclient;
+        this.personne = personne;
+        this.idcompte = idcompte;
+        this.idconseiller = idconseiller;
+     
     }
 
-    public Client(String nom, String prenom, String mail, String mdp) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.mdp = mdp;
+    public Client(Personne personne, int idcompte, int idconseiller) {
+        this.personne = personne;
+        this.idcompte = idcompte;
+        this.idconseiller = idconseiller;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
     
-    public String getMail() {
-        return mail;
+    
+
+    public int getIdclient() {
+        return idclient;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public Personne getPersonne() {
+        return personne;
     }
 
-    public String getMdp() {
-        return mdp;
+    public int getIdcompte() {
+        return idcompte;
     }
 
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public int getIdconseiller() {
+        return idconseiller;
+    }
+
+    public void setIdclient(int idclient) {
+        this.idclient = idclient;
+    }
+
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
+    }
+
+    public void setIdcompte(int idcompte) {
+        this.idcompte = idcompte;
+    }
+
+    public void setIdconseiller(int idconseiller) {
+        this.idconseiller = idconseiller;
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", mdp=" + mdp + '}';
+        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idcompte=" + idcompte + ", idconseiller=" + idconseiller + '}';
     }
+
+    
+    
+    
     
     
 }
