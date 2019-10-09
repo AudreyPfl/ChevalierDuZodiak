@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="Ressources/style.css">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body background = "Ressources/bank.jpg">
 
         <div>
             <nav class="navbar navbar-dark bg-dark ">
