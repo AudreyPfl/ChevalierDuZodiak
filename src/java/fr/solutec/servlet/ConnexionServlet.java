@@ -7,14 +7,17 @@ package fr.solutec.servlet;
 
 import fr.solutec.bean.Admin;
 import fr.solutec.bean.Client;
+import fr.solutec.bean.Compte;
 import fr.solutec.bean.Conseiller;
 import fr.solutec.bean.Personne;
 import fr.solutec.dao.AdminDao;
 import fr.solutec.dao.ClientDao;
+import fr.solutec.dao.CompteDao;
 import fr.solutec.dao.ConseillerDao;
 import fr.solutec.dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -88,7 +91,10 @@ public class ConnexionServlet extends HttpServlet {
             Admin ad = AdminDao.getByLoginPass(log, pw);
             
             if (cl != null){
+                
+                
                 request.getSession(true).setAttribute("client", cl);
+                
                 response.sendRedirect("espaceclient");}
             else if (co != null){
                 request.getSession(true).setAttribute("conseiller", co);

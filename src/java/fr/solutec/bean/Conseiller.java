@@ -32,6 +32,8 @@ public class Conseiller extends Personne{
         this.idadmin = idadmin;
         this.statut = statut;
     }
+    
+    
 
     public int getIdconseiller() {
         return idconseiller;

@@ -4,6 +4,7 @@
     Author     : esic
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,10 +65,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <td>info client à recup</td>
-                        <td>info client à récup</td>
-                        <td>info client à récup</td>
-                        <td>info client à récup</td>
+                            <c:forEach items="${listecompte}" var="co">
+                                <tr>
+                                    <td scope="row">${co.idcompte}</td>
+                                    <td>${co.solde} €</td>
+                                    <td>${co.carte}</td>
+                                    <td>${co.decouvert} €</td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
 
 
@@ -95,7 +100,11 @@
                         <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
+                            <div class="card-text">
+                                <p> ${cons.prenom} ${cons.nom} </p>
+                                <p> @ : ${cons.email} </p>
+                            
+                            </div>
                             <button class="btn btn-primary ">Par Mail</button>
                             <button class="btn btn-primary ">Par Message</button>
                         </div>

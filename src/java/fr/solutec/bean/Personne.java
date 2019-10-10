@@ -27,6 +27,14 @@ public class Personne {
         this.mdp = mdp;
     }
 
+    public Personne(String nom, String prenom, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+    }
+    
+    
+
     public String getNom() {
         return nom;
     }
@@ -55,7 +63,7 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    public void setEmail(String mail) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

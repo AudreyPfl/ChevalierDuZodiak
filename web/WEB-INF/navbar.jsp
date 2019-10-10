@@ -32,7 +32,7 @@
 
             $("#deco").on("click", function (e) {
                 location.href = 'deco';
-            })
+            });
         </script>
 
 

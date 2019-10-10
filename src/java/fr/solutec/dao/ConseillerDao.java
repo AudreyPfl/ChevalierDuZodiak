@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -53,5 +55,28 @@ public class ConseillerDao {
             id = rs.getInt("idconseiller");
         }
         return id;
-    }    
+    }
+    
+        public static Conseiller getConsByClient(Client c) throws SQLException{
+        Conseiller cons = new Conseiller();
+        int id = c.getIdconseiller();
+        
+        String sql = "SELECT * FROM conseiller WHERE idconseiller=" + id ;
+        Connection connexion = AccessBD.getConnection();
+       
+        Statement requete = connexion.createStatement();
+        
+        ResultSet rs = requete.executeQuery(sql);
+        
+        if(rs.next()){
+            cons.setEmail(rs.getString("email"));
+           // String test = rs.getString("email");
+            cons.setNom(rs.getString("nom"));
+            cons.setPrenom(rs.getString("prenom"));       
+            
+        }
+                
+        return cons;       
+    }
+    
 }
