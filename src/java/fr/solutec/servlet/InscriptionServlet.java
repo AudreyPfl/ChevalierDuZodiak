@@ -90,8 +90,10 @@ public class InscriptionServlet extends HttpServlet {
         Client c = new Client(p, idconseiller, statut);
 
         try {
-            UserDao.insertClient(c);
-            CompteDao.CreateCompteClient(c);
+            Client cl = UserDao.insertClient(c);
+            PrintWriter out = response.getWriter();
+            out.println(c.toString());
+            CompteDao.CreateCompteClient(cl);
             request.getSession(true).setAttribute("membre", c);
             response.sendRedirect("");
         } catch (Exception e) {
