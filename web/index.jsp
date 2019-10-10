@@ -24,7 +24,7 @@
             <nav class="navbar navbar-dark bg-dark ">
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
-                    <button class="btn btn-primary" style="color: darkturquoise">S'inscrire</button>
+                    <button class="btn btn-primary" style="color: darkturquoise" id="inscrire" >S'inscrire</button>
                     <button class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
                 </form>
             </nav>
@@ -35,6 +35,10 @@
                 e.preventDefault();
                 $('#connection').modal('show');
             })
+            $("#inscrire").on("click", function (e){  
+                e.preventDefault();
+            location.href ='inscription';
+            })
         </script>
 
 
@@ -42,7 +46,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">&nbsp &nbsp &nbsp Connection</h5>
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">&nbsp &nbsp &nbsp Connexion</h5>
                         <hr>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -66,9 +70,10 @@
 
                     </div>
                     <div class="modal-footer">
-
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                        <button type="button" class="btn btn-primary">Se connecter</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>       
+                        
+                        <button type="button" class="btn btn-primary" >Se connecter</button>
+                        
                     </div>
                 </div>
             </div>
