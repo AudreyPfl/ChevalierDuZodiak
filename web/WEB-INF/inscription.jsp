@@ -20,18 +20,55 @@
             <nav class="navbar navbar-dark bg-dark ">
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
-                    
-                    <button class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
+                    <button  class="btn btn-primary" style="color: darkturquoise" id="connect1">Se connecter</button>
                 </form>
             </nav>
         </div>
+
         <script>
-            $("#connect").on("click", function (e) {
+            $("#connect1").on("click", function (e) {
                 e.preventDefault();
-                $('#connection').modal('show');
+                $('#connection1').modal('show');
             })
-           
         </script>
+        <div class="modal fade" id="connection1" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle1">&nbsp &nbsp &nbsp Connexion</h5>
+                        <hr>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form  action="connexion" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+
+                                <input class="form-control text-center"
+                                       name="mail" value="${param['mail']}"
+                                       type="email" placeholder="e-mail" required="">
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
         
         
         <div class="container">
@@ -52,7 +89,7 @@
                         <input type="password" class="form-control text-center" placeholder="Mot de passe" name="mdp">
                         <br>
                         <button type="submit" class="btn btn-primary btn-block">Demande d'inscription</button>
-                        <button type="button" onclick="location.href=''" class="btn btn-link btn-block">Retour</button>
+                        <button type="button" onclick="location.href='index.jsp'" class="btn btn-link btn-block">Retour</button>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>

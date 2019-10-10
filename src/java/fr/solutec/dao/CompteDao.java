@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -46,13 +47,17 @@ public class CompteDao {
     
     public static void CreateCompteClient(Client c) throws SQLException{
         
-        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, 0, 1, 0, ?)";
+        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, ?, 1, 0, ?)";
         Connection connexion = AccessBD.getConnection();
-        PreparedStatement requette1 = connexion.prepareStatement(sql1);
-        
-        requette1.setInt(1, c.getIdclient());
-        
+        PreparedStatement requette1 = connexion.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+        requette1.setInt(2, c.getIdclient());
         requette1.execute();
+        ResultSet rs = requette1.getGeneratedKeys();
+        
+        int carte = 0;
+         if (rs.next()) {
+            carte = rs.getInt(1);     
+        }
     }
     
 }
