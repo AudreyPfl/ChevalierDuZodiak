@@ -13,7 +13,6 @@ import java.util.logging.Logger;
  */
 public class Conseiller extends Personne{
     private int idconseiller;
-  
     private int idadmin;
     private boolean statut;
 
