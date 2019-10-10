@@ -91,10 +91,8 @@ public class InscriptionServlet extends HttpServlet {
 
         try {
             Client cl = UserDao.insertClient(c);
-            PrintWriter out = response.getWriter();
-            out.println(c.toString());
             CompteDao.CreateCompteClient(cl);
-            request.getSession(true).setAttribute("membre", c);
+            request.getSession(true).setAttribute("membre", cl);
             response.sendRedirect("");
         } catch (Exception e) {
             PrintWriter out = response.getWriter();
