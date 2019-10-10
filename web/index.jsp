@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +18,7 @@
         <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="Ressources/style.css">
         <link rel="stylesheet" href="style.css">
+
     </head>
     <body background = "Ressources/bank.jpg">
 
@@ -41,8 +43,6 @@
             })
 
         </script>
-
-
         <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -53,7 +53,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="register">
+                    <form action="connexion" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
 
@@ -71,12 +71,14 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
-                            <button type="button" class="btn btn-primary" id="conexion" action="connexion" method="POST">Se connecter</button>
+                            <button type="submit" class="btn btn-primary" >Se connecter</button>
 
                         </div>
                     </form>
                 </div>
             </div>
+
+
         </div>
 
 
