@@ -76,35 +76,28 @@ public class InscriptionServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        String email = request.getParameter("email");
+        String sexe = request.getParameter("sexe");
+        String mdp = request.getParameter("mdp");
+        int idconseiller = 1;
+        boolean statut = false;
+
+        Personne p = new Personne(nom, prenom, email, sexe, mdp);
+        Client c = new Client(p, idconseiller, statut);
+
         try {
-            Compte cpt = CompteDao.InsertLastCompte();
-            
-            String nom = request.getParameter("nom");
-            String prenom = request.getParameter("prenom");
-            String email = request.getParameter("email");
-            String sexe = request.getParameter("sexe");
-            String mdp = request.getParameter("mdp");
-            int idcompte = cpt.getIdcompte();
-            int idconseiller = 1;
-            boolean statut = false;
-
-            Personne p = new Personne(nom, prenom, email, sexe, mdp);
-            Client c = new Client(p, idcompte, idconseiller, statut);
-
-            try {
-                UserDao.insertClient(c);
-                request.getSession(true).setAttribute("membre", c);
-                response.sendRedirect("");
-            } catch (Exception e) {
-                PrintWriter out = response.getWriter();
-                out.println(e.getMessage());
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(InscriptionServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+            UserDao.insertClient(c);
+            CompteDao.CreateCompteClient(c);
+            request.getSession(true).setAttribute("membre", c);
+            response.sendRedirect("");
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
     }
 
     /**

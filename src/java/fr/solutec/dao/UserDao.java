@@ -47,7 +47,7 @@ public class UserDao {
 
     public static void insertClient(Client client) throws SQLException {
  
-        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql);
         requette.setString(1, client.getPersonne().getNom());
@@ -55,9 +55,8 @@ public class UserDao {
         requette.setString(3, client.getPersonne().getEmail());
         requette.setString(4, client.getPersonne().getSexe());
         requette.setString(5, client.getPersonne().getMdp());
-        requette.setInt(6, client.getIdcompte());
-        requette.setInt(7, client.getIdconseiller());
-        requette.setBoolean(8, client.isStatut());
+        requette.setInt(6, client.getIdconseiller());
+        requette.setBoolean(7, client.isStatut());
        
         requette.execute();
     }
