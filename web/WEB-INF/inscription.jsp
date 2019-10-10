@@ -33,6 +33,42 @@
            
         </script>
         
+        <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">&nbsp &nbsp &nbsp Connexion</h5>
+                        <hr>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="register">
+                        <div class="modal-body">
+                            <div class="form-group">
+
+                                <input class="form-control text-center"
+                                       name="mail" value="${param['mail']}"
+                                       type="email" placeholder="e-mail" required="">
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
+                            <button type="button" class="btn btn-primary" id="conexion" action="connexion" method="POST">Se connecter</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         
         <div class="container">
             <h3 class="text-center">Formulaire d'inscription</h3>
