@@ -69,9 +69,10 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                        
-                        <button type="button" class="btn btn-primary">Se connecter</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>       
+                        <div action="connexion" method="POST">
+                        <button type="button" class="btn btn-primary" >Se connecter</button>
+                        </div>
                     </div>
                 </div>
             </div>
