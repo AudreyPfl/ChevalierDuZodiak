@@ -28,10 +28,10 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-                
+
         <%@include file="navbar.jsp" %> 
         <%@include file="modaldecouvert.jsp" %> 
-        
+
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
@@ -63,10 +63,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <td>info client à recup</td>
-                            <td>info client à récup</td>
-                            <td>info client à récup</td>
-                            <td>info client à récup</td>
+                        <td>info client à recup</td>
+                        <td>info client à récup</td>
+                        <td>info client à récup</td>
+                        <td>info client à récup</td>
                         </tbody>
 
 
@@ -75,9 +75,9 @@
                     <br>
                     <br>
                     <hr>
-                    
+
                     <div>
-                        <button class="btn btn-primary btn-block" onclick="location.href='espaceclient'">Retour Espace Client</button>
+                        <button class="btn btn-primary btn-block" onclick="location.href = 'espaceclient'">Retour Espace Client</button>
                     </div>
 
                 </div>
@@ -94,17 +94,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <td>Info client à récup</td>
-                                    
+                                <td>Info client à récup</td>
+
                                 </tbody>
-                             
+
                             </table>
-                            
+
                         </div>
-                        
+
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#ModalDecouvert">Demande de découvert</button>
                         <br><br><br>
-                        
+
                         <button class="btn btn-primary btn-block">Activer/Désactiver ma carte</button>
                         <br>
                     </div>

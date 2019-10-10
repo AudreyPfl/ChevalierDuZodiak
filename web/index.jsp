@@ -71,7 +71,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
-                            <button type="submit" class="btn btn-primary" >Se connecter</button>
+                            <button type="submit" class="btn btn-primary" id="conexion">Se connecter</button>
 
                         </div>
                     </form>
