@@ -22,7 +22,7 @@
             <nav class="navbar navbar-dark bg-dark ">
                 <a class="navbar-brand" style="color: white" onclick="location.href = 'index.jsp'">BangBank</a>
                 <form class="form-inline">
-                    <img src="Ressources/profil.png" alt="" width="40" height="40" >                 
+                    <img src="Ressources/profil.png" alt="" width="40" height="40" onclick="" >                 
                     <button class="btn btn-primary" type="button"  style="color: darkturquoise" id="deco">Se déconnecter</button>                    
                 </form>
             </nav>
