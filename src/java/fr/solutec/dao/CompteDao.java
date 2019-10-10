@@ -49,11 +49,11 @@ public class CompteDao {
         
         String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, 0, 1, 0, ?)";
         Connection connexion1 = AccessBD.getConnection();
-        PreparedStatement requette1 = connexion1.prepareStatement(sql1);
+        PreparedStatement requette1 = connexion1.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
         requette1.setInt(1, c.getIdclient());
         requette1.execute();
-        //ResultSet rs = requette1.getGeneratedKeys();
-        /*
+        ResultSet rs = requette1.getGeneratedKeys();
+        
         int id = 0;
         if (rs.next()) {
             id = rs.getInt(1);     
@@ -61,7 +61,7 @@ public class CompteDao {
         String sql2 = "UPDATE compte SET carte = ? WHERE idcompte=" + id;
         PreparedStatement requette2 = connexion1.prepareStatement(sql2);
         requette2.setInt(1, id);
-        requette2.execute();*/
+        requette2.execute();
     }
     
 }
