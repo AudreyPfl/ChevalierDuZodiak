@@ -5,13 +5,10 @@
  */
 package fr.solutec.servlet;
 
-import fr.solutec.bean.*;
-import fr.solutec.dao.*;
+import fr.solutec.bean.Personne;
+import fr.solutec.dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author esic
+ * @author stagiaire
  */
-@WebServlet(name = "InscriptionServlet", urlPatterns = {"/inscription"})
-public class InscriptionServlet extends HttpServlet {
+@WebServlet(name = "ConnexionServlet", urlPatterns = {"/connexion"})
+public class ConnexionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class InscriptionServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InscriptionServlet</title>");            
+            out.println("<title>Servlet ConnexionServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet InscriptionServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConnexionServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,8 +60,7 @@ public class InscriptionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.getRequestDispatcher("WEB-INF/inscription.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -76,28 +72,21 @@ public class InscriptionServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String email = request.getParameter("email");
-        String sexe = request.getParameter("sexe");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String login = request.getParameter("login");
         String mdp = request.getParameter("mdp");
-        int idconseiller = 1;
-        boolean statut = false;
+        
+        try{
+            
+           // request.getSession(true).setAttribute("membre");
+            response.sendRedirect("accueil");
+        } catch (Exception e){
 
-        Personne p = new Personne(nom, prenom, email, sexe, mdp);
-        Client c = new Client(p, idconseiller, statut);
-
-        try {
-            Client cl = UserDao.insertClient(c);
-            CompteDao.CreateCompteClient(cl);
-            request.getSession(true).setAttribute("membre", cl);
-            response.sendRedirect("");
-        } catch (Exception e) {
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
         }
+        
     }
 
     /**

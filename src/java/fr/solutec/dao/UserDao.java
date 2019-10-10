@@ -18,89 +18,93 @@ import java.util.List;
  *
  * @author Joel B
  */
-
-
 public class UserDao {
-/*
-    public static Client getByLoginPass(String login, String mdp) throws SQLException {
-        Client resultat = null;
+    /*
+     public static Client getByLoginPass(String login, String mdp) throws SQLException {
+     Client resultat = null;
 
-        String sql = "SELECT * FROM user WHERE mail=?AND mdp=?";
+     String sql = "SELECT * FROM user WHERE mail=?AND mdp=?";
+     Connection connexion = AccessBD.getConnection();
+
+     PreparedStatement requette = connexion.prepareStatement(sql);
+     requette.setString(1, login);
+     requette.setString(2, mdp);
+
+     ResultSet rs = requette.executeQuery();
+
+     if (rs.next()) {
+     resultat = new Client();
+     resultat.setId(rs.getInt("iduser"));
+     resultat.setNom(rs.getString("nom"));
+     resultat.setPrenom(rs.getString("prenom"));
+     resultat.setEmail(rs.getString("email"));
+     }
+     return resultat;
+     }
+     */
+
+    public static Client insertClient(Client client) throws SQLException {
+        Client c = null;
+        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
-
-        PreparedStatement requette = connexion.prepareStatement(sql);
-        requette.setString(1, login);
-        requette.setString(2, mdp);
-
-        ResultSet rs = requette.executeQuery();
-
-        if (rs.next()) {
-            resultat = new Client();
-            resultat.setId(rs.getInt("iduser"));
-            resultat.setNom(rs.getString("nom"));
-            resultat.setPrenom(rs.getString("prenom"));
-            resultat.setEmail(rs.getString("email"));
-        }
-        return resultat;
-    }
-*/
-
-    public static void insertClient(Client client) throws SQLException {
- 
-        String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idcompte, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        Connection connexion = AccessBD.getConnection();
-        PreparedStatement requette = connexion.prepareStatement(sql);
+        PreparedStatement requette = connexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         requette.setString(1, client.getPersonne().getNom());
         requette.setString(2, client.getPersonne().getPrenom());
         requette.setString(3, client.getPersonne().getEmail());
         requette.setString(4, client.getPersonne().getSexe());
         requette.setString(5, client.getPersonne().getMdp());
-        requette.setInt(6, client.getIdcompte());
-        requette.setInt(7, client.getIdconseiller());
-        requette.setBoolean(8, client.isStatut());
-       
+        requette.setInt(6, client.getIdconseiller());
+        requette.setBoolean(7, client.isStatut());
+        
         requette.execute();
+        ResultSet rs = requette.getGeneratedKeys();
+
+        if (rs.next()) {
+            c = new Client();
+            c.setIdclient(rs.getInt(1));        
+        }
+        return c;
     }
     /*
-    public static List<Client> getAllClient() throws SQLException {
-        List<Client> result = new ArrayList<>();
+     public static List<Client> getAllClient() throws SQLException {
+     List<Client> result = new ArrayList<>();
 
-        String sql = "SELECT * FROM user";
-        Connection connexion = AccessBD.getConnection();
+     String sql = "SELECT * FROM user";
+     Connection connexion = AccessBD.getConnection();
 
-        Statement requette = connexion.createStatement();
+     Statement requette = connexion.createStatement();
 
-        ResultSet rs = requette.executeQuery(sql);
+     ResultSet rs = requette.executeQuery(sql);
 
-        while (rs.next()) {
-            Client u = new Client();
-            u.setId(rs.getInt("iduser"));
-            u.setNom(rs.getString("nom"));
-            u.setPrenom(rs.getString("prenom"));
-            u.setEmail(rs.getString("mail"));
+     while (rs.next()) {
+     Client u = new Client();
+     u.setId(rs.getInt("iduser"));
+     u.setNom(rs.getString("nom"));
+     u.setPrenom(rs.getString("prenom"));
+     u.setEmail(rs.getString("mail"));
 
-            result.add(u);
-        }
+     result.add(u);
+     }
 
-        return result;
-    }
-    */
+     return result;
+     }
+     */
     /*
-    public static ConseillerNbClient(Conseiller cons) throws SQLException {
+     public static ConseillerNbClient(Conseiller cons) throws SQLException {
         
-        int NbClient = 0;
-        String sql = "SELECT COUNT(*) FROM client WHERE idconseiller=" + cons.getIdconseiller();
-        Connection connexion = AccessBD.getConnection();
+     int NbClient = 0;
+     String sql = "SELECT COUNT(*) FROM client WHERE idconseiller=" + cons.getIdconseiller();
+     Connection connexion = AccessBD.getConnection();
 
-        Statement requette = connexion.createStatement();
+     Statement requette = connexion.createStatement();
 
-        ResultSet rs = requette.executeQuery(sql);
+     ResultSet rs = requette.executeQuery(sql);
         
-        if(rs.next()){
-            NbClient = rs.;
-        }
-        return NbClient;
-    }
-    */
-    
+     if(rs.next()){
+     NbClient = rs.;
+     }
+     return NbClient;
+     }
+     */
+
 }
