@@ -36,6 +36,7 @@ public class AdminDao {
             resultat.getPersonne().setEmail(rs.getString("email"));
             resultat.getPersonne().setMdp(rs.getString("mdp"));
             resultat.getPersonne().setSexe(rs.getString("sexe"));
+            resultat.setIdadmin(rs.getInt("idadmin"));
             
         }
         return resultat;

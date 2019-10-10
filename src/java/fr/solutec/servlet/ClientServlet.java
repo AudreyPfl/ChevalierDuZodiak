@@ -5,6 +5,7 @@
  */
 package fr.solutec.servlet;
 
+import fr.solutec.bean.Client;
 import fr.solutec.bean.Compte;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -60,12 +62,16 @@ public class ClientServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession(true);
+        Client c = (Client) session.getAttribute("client");
+        
         try {
-            Compte c = new Compte();
-            
+            request.setAttribute("client", c);
             request.getRequestDispatcher("WEB-INF/client.jsp").forward(request, response);
 
         } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
         }
 
     }

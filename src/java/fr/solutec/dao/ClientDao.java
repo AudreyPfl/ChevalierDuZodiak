@@ -36,6 +36,9 @@ public class ClientDao {
             resultat.getPersonne().setEmail(rs.getString("email"));
             resultat.getPersonne().setMdp(rs.getString("mdp"));
             resultat.getPersonne().setSexe(rs.getString("sexe"));
+            resultat.setIdclient(rs.getInt("idclient"));
+            resultat.setIdconseiller(rs.getInt("idconseiller"));
+            resultat.setStatut(rs.getBoolean("statut"));
             
         }
         return resultat;

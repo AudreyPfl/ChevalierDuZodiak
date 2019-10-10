@@ -36,11 +36,11 @@
             $("#connect").on("click", function (e) {
                 e.preventDefault();
                 $('#connection').modal('show');
-            })
+            });
             $("#inscrire").on("click", function (e) {
                 e.preventDefault();
                 location.href = 'inscription';
-            })
+            });
 
         </script>
         <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
@@ -71,10 +71,11 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
-                            <button type="submit" class="btn btn-primary" id="conexion">Se connecter</button>
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
 
                         </div>
                     </form>
+                    <p class="text-danger">${msg}</p> 
                 </div>
             </div>
 

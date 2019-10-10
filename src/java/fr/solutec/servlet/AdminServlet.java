@@ -7,12 +7,6 @@ package fr.solutec.servlet;
 
 import fr.solutec.bean.Admin;
 import fr.solutec.bean.Client;
-import fr.solutec.bean.Conseiller;
-import fr.solutec.bean.Personne;
-import fr.solutec.dao.AdminDao;
-import fr.solutec.dao.ClientDao;
-import fr.solutec.dao.ConseillerDao;
-import fr.solutec.dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,13 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author stagiaire
+ * @author esic
  */
-@WebServlet(name = "ConnexionServlet", urlPatterns = {"/connexion"})
-public class ConnexionServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", urlPatterns = {"/espaceadmin"})
+public class AdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +40,10 @@ public class ConnexionServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConnexionServlet</title>");            
+            out.println("<title>Servlet AdminServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConnexionServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AdminServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,7 +61,17 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession(true);
+        Admin a = (Admin) session.getAttribute("admin");
+        
+        try {
+            request.setAttribute("admin", a);
+            request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
     }
 
     /**
@@ -80,32 +85,7 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-            String log = request.getParameter("mail");
-            String pw = request.getParameter("mdp");
-            Client cl = ClientDao.getByLoginPass(log, pw);
-            Conseiller co = ConseillerDao.getByLoginPass(log, pw);
-            Admin ad = AdminDao.getByLoginPass(log, pw);
-            
-            if (cl != null){
-                request.getSession(true).setAttribute("client", cl);
-                response.sendRedirect("espaceclient");}
-            else if (co != null){
-                request.getSession(true).setAttribute("conseiller", co);
-                response.sendRedirect("espaceconseiller");}
-            else if (ad != null){
-                request.getSession(true).setAttribute("admin", ad);
-                response.sendRedirect("espaceadmin");
-                
-            }else{
-                request.setAttribute("msg", "login ou mot de passe incorrect");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
-        } catch (Exception e){
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
-        }
-        
+        processRequest(request, response);
     }
 
     /**
@@ -118,5 +98,4 @@ public class ConnexionServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-   
 }
