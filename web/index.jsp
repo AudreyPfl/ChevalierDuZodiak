@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="style.css">
 
     </head>
-    <body background = "Ressources/bank.jpg">
+    <body background = "Ressources/bank.jpg" style="background-size: cover">
 
         <div>
             <nav class="navbar navbar-dark bg-dark ">
