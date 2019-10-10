@@ -9,39 +9,35 @@ package fr.solutec.bean;
  *
  * @author esic
  */
-public class Admin {
+public class Admin extends Personne{
     private int idadmin;
-    private Personne personne;
-
-    public Admin(int idadmin, Personne personne) {
-        this.idadmin = idadmin;
-        this.personne = personne;
-    }
 
     public Admin() {
+    }
+
+    public Admin(int idadmin) {
+        this.idadmin = idadmin;
+    }
+
+    public Admin(int idadmin, String nom, String prenom, String email, String sexe, String mdp) {
+        super(nom, prenom, email, sexe, mdp);
+        this.idadmin = idadmin;
     }
 
     public int getIdadmin() {
         return idadmin;
     }
 
-    public Personne getPersonne() {
-        return personne;
-    }
-
     public void setIdadmin(int idadmin) {
         this.idadmin = idadmin;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
     @Override
     public String toString() {
-        return "Admin{" + "idadmin=" + idadmin + ", personne=" + personne + '}';
+        return "Admin{" + "idadmin=" + idadmin + '}';
     }
     
-    
-    
+
 }
+
+    
