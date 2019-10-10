@@ -30,6 +30,11 @@ public class Client extends Personne {
         this.idconseiller = idconseiller;
         this.statut = statut;
     }
+    public Client(int idconseiller, boolean statut, String nom, String prenom, String email, String sexe, String mdp) {
+        super(nom, prenom, email, sexe, mdp);
+        this.idconseiller = idconseiller;
+        this.statut = statut;
+    }
 
     public int getIdclient() {
         return idclient;

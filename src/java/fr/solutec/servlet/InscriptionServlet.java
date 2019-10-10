@@ -91,8 +91,8 @@ public class InscriptionServlet extends HttpServlet {
         }
         boolean statut = false;
 
-        Personne p = new Personne(nom, prenom, email, sexe, mdp);
-        Client c = new Client(p, idconseiller, statut);
+        
+        Client c = new Client(idconseiller, statut, nom, prenom, email, sexe, mdp);
 
         try {
             Client cl = UserDao.insertClient(c);
