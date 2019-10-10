@@ -23,14 +23,14 @@
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
                     <img src="http://placehold.it/150x50?text=Logo" alt="">
-                    <button class="btn btn-primary" style="color: darkturquoise" id="déco">Se déconnecter</button>                    
+                    <button class="btn btn-primary" style="color: darkturquoise" onclick="location.href = 'deco'" id="deco">Se déconnecter</button>                    
                 </form>
             </nav>
         </div>
 
         <script>
 
-            $("#déco").on("click", function (e) {
+            $("#deco").on("click", function (e) {
                 location.href = 'deco';
             })
         </script>

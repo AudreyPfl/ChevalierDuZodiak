@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Page d'inscription</title>
 </head>
-<body background = "Ressources/bank.jpg">
+<body background = "Ressources/bank.jpg" style="background-size: cover">
 
     <div>
         <nav class="navbar navbar-dark bg-dark ">
