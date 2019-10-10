@@ -14,7 +14,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page d'inscription</title>
     </head>
-    <body>
+    <body background = "Ressources/bank.jpg">
+        
+        <div>
+            <nav class="navbar navbar-dark bg-dark ">
+                <a class="navbar-brand" style="color: white">BangBank</a>
+                <form class="form-inline">
+                    
+                    <button class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
+                </form>
+            </nav>
+        </div>
+        <script>
+            $("#connect").on("click", function (e) {
+                e.preventDefault();
+                $('#connection').modal('show');
+            })
+           
+        </script>
+        
+        
         <div class="container">
             <h3 class="text-center">Formulaire d'inscription</h3>
             <hr>
