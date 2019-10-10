@@ -9,6 +9,9 @@ import fr.solutec.bean.*;
 import fr.solutec.dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -76,26 +79,32 @@ public class InscriptionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String email = request.getParameter("email");
-        String sexe = request.getParameter("sexe");
-        String mdp = request.getParameter("mdp");
-        int idcompte = 1;
-        int idconseiller = 1;
-        boolean statut = false;
-        
-        Personne p = new Personne(nom, prenom, email, sexe, mdp);
-        Client c = new Client(p, idcompte, idconseiller, statut);
-        
         try {
-            UserDao.insertClient(c);
-            request.getSession(true).setAttribute("membre", c);
-            response.sendRedirect("");
-        } catch (Exception e) {
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
-        }
+            Compte cpt = CompteDao.InsertLastCompte();
+            
+            String nom = request.getParameter("nom");
+            String prenom = request.getParameter("prenom");
+            String email = request.getParameter("email");
+            String sexe = request.getParameter("sexe");
+            String mdp = request.getParameter("mdp");
+            int idcompte = cpt.getIdcompte();
+            int idconseiller = 1;
+            boolean statut = false;
+
+            Personne p = new Personne(nom, prenom, email, sexe, mdp);
+            Client c = new Client(p, idcompte, idconseiller, statut);
+
+            try {
+                UserDao.insertClient(c);
+                request.getSession(true).setAttribute("membre", c);
+                response.sendRedirect("");
+            } catch (Exception e) {
+                PrintWriter out = response.getWriter();
+                out.println(e.getMessage());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InscriptionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
 
     /**

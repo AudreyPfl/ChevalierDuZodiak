@@ -28,7 +28,10 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-        <!-- Insertion de la navBar-->
+        
+        <%@include file="navbar.jsp" %> 
+        
+        
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
@@ -55,10 +58,14 @@
                             <tr>
                                 <th>N° de compte</th>
                                 <th>Solde</th>
+                                <th>N° Carte</th>
+                                <th>Découvert autorisé</th>
                             </tr>
                         </thead>
                         <tbody>
                             <td>info client à recup</td>
+                            <td>info client à récup</td>
+                            <td>info client à récup</td>
                             <td>info client à récup</td>
                         </tbody>
 
