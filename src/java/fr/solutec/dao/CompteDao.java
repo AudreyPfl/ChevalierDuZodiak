@@ -17,6 +17,8 @@ import java.sql.SQLException;
  * @author esic
  */
 public class CompteDao {
+    
+    /*
     public static Compte getCompteClient(Client client) throws SQLException {
         Compte c = new Compte();
 
@@ -40,28 +42,17 @@ public class CompteDao {
         }
 
         return c;
-    }
+    }*/
     
-    public static Compte InsertLastCompte() throws SQLException{
+    public static void CreateCompteClient(Client c) throws SQLException{
         
-        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert) VALUES (0, 0, 1, 0)";
+        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, 0, 1, 0, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette1 = connexion.prepareStatement(sql1);
+        
+        requette1.setInt(1, c.getIdclient());
+        
         requette1.execute();
-        
-        Compte compte = new Compte();
-        String sql2 = "SELECT * FROM compte ORDER BY idcompte DESC LIMIT 1";
-        PreparedStatement requette2 = connexion.prepareStatement(sql2);
-        ResultSet rs2 = requette2.executeQuery(sql2);
-        
-        if(rs2.next()){
-            compte.setIdcompte(rs2.getInt("idcompte"));
-            compte.setSolde(rs2.getDouble("solde"));
-            compte.setCarte(rs2.getInt("carte"));
-            compte.setStatut(rs2.getBoolean("statut"));
-            compte.setDecouvert(rs2.getDouble("decouvert"));
-        }
-        return compte;
     }
     
 }

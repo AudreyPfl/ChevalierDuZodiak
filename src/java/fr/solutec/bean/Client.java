@@ -12,25 +12,22 @@ package fr.solutec.bean;
 public class Client {
     private int idclient;
     private Personne personne;
-    private int idcompte;
     private int idconseiller;
     private boolean statut;
 
     public Client() {
     }
 
-    public Client(int idclient, Personne personne, int idcompte, int idconseiller, boolean statut) {
+    public Client(int idclient, Personne personne, int idconseiller, boolean statut) {
         this.idclient = idclient;
         this.personne = personne;
-        this.idcompte = idcompte;
         this.idconseiller = idconseiller;
         this.statut = statut;
      
     }
 
-    public Client(Personne personne, int idcompte, int idconseiller, boolean statut) {
+    public Client(Personne personne, int idconseiller, boolean statut) {
         this.personne = personne;
-        this.idcompte = idcompte;
         this.idconseiller = idconseiller;
         this.statut = statut;
     }
@@ -45,9 +42,6 @@ public class Client {
         return personne;
     }
 
-    public int getIdcompte() {
-        return idcompte;
-    }
 
     public int getIdconseiller() {
         return idconseiller;
@@ -61,9 +55,7 @@ public class Client {
         this.personne = personne;
     }
 
-    public void setIdcompte(int idcompte) {
-        this.idcompte = idcompte;
-    }
+  
 
     public void setIdconseiller(int idconseiller) {
         this.idconseiller = idconseiller;
@@ -79,8 +71,10 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idcompte=" + idcompte + ", idconseiller=" + idconseiller + ", statut=" + statut + '}';
+        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idconseiller=" + idconseiller + ", statut=" + statut + '}';
     }
+
+   
 
 
 
