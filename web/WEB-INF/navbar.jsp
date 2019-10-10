@@ -17,13 +17,13 @@
         <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 
     </head>
-    <body>
+    <body >
         <div>
             <nav class="navbar navbar-dark bg-dark ">
-                <a class="navbar-brand" style="color: white">BangBank</a>
+                <a class="navbar-brand" style="color: white" onclick="location.href = 'index.jsp'">BangBank</a>
                 <form class="form-inline">
-                    <img src="http://placehold.it/150x50?text=Logo" alt="">
-                    <button class="btn btn-primary" style="color: darkturquoise" onclick="location.href = 'deco'" id="deco">Se déconnecter</button>                    
+                    <img src="Ressources/profil.png" alt="" width="40" height="40" >                 
+                    <button class="btn btn-primary" type="button"  style="color: darkturquoise" id="deco">Se déconnecter</button>                    
                 </form>
             </nav>
         </div>

@@ -72,30 +72,36 @@
     </div>
 
 
-
     <div class="container">
-        <h3 class="text-center">Formulaire d'inscription</h3>
-        <hr>
-        <form action="inscription" method="POST">
-            <div class="row form-group">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+        <div class="card bg-light mb-3 text-center mx-auto" style="max-width: 28rem;">
+            <h3 class="card-header">Formulaire d'inscription</h3>
+            <form action="inscription" method="POST">
+                <div class="card-body">
                     <input type="text" class="form-control text-center" placeholder="Nom" name="nom">
                     <br>
                     <input type="text" class="form-control text-center" placeholder="Prénom" name="prenom">
                     <br>
                     <input type="email" class="form-control text-center" placeholder="Email" name="email">
                     <br>
-                    <input type="text" class="form-control text-center" placeholder="Sexe" name="sexe">
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01"></label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="sexe">
+                            <option selected >Sexe</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                        </select>
+                    </div>
                     <br>
                     <input type="password" class="form-control text-center" placeholder="Mot de passe" name="mdp">
                     <br>
                     <button type="submit" class="btn btn-primary btn-block">Demande d'inscription</button>
                     <button type="button" onclick="location.href = 'index.jsp'" class="btn btn-link btn-block">Retour</button>
                 </div>
-                <div class="col-sm-4"></div>
-            </div>
-        </form>
+            </form>           
+        </div>
     </div>
 </body>
 </html>

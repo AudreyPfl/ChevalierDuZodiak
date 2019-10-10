@@ -1,12 +1,12 @@
 <%-- 
-    Document   : admin
-    Created on : 10 oct. 2019, 12:13:31
+    Document   : conseiller
+    Created on : 10 oct. 2019, 15:03:24
     Author     : esic
 --%>
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,7 +35,7 @@
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
-                    <p>Bonjour ${admin.prenom} ${admin.nom}, bienvenue dans votre espace administrateur <br>
+                    <p>Bonjour ${conseiller.prenom} ${conseiller.nom}, bienvenue dans votre espace conseiller <br>
                         Style bg à mettre</p>
                 </div>
             </div>
@@ -44,17 +44,20 @@
         <br>
 
         <div class="container">
-            <h3>Gestion des conseillers</h3>
+            <h3>Gestion des clients</h3>
             <hr>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
-                            
+                            <h5 class="card-title">Votre client</h5>
+                            <p class="card-text">Solde</p>
+                            <p class="card-text">Découvert autorisé</p>
+                            <p class="card-text">Statut</p>  
+                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                            <button class="btn btn-primary ">Détails</button>
                         </div>
                     </div>
                 </div>
@@ -62,10 +65,13 @@
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
-                           
+                            <h5 class="card-title">Votre client</h5>
+                            <p class="card-text">Solde</p>
+                            <p class="card-text">Découvert autorisé</p>
+                            <p class="card-text">Statut</p>  
+                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                            <button class="btn btn-primary ">Détails</button>
                         </div>
                     </div>
                 </div>
@@ -73,10 +79,13 @@
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
-                          
+                            <h5 class="card-title">Votre client</h5>
+                            <p class="card-text">Solde</p>
+                            <p class="card-text">Découvert autorisé</p>
+                            <p class="card-text">Statut</p>  
+                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                            <button class="btn btn-primary ">Détails</button>
                         </div>
                     </div>
                 </div>
@@ -84,38 +93,15 @@
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
-                            
+                            <h5 class="card-title">Votre client</h5>
+                            <p class="card-text">Solde</p>
+                            <p class="card-text">Découvert autorisé</p>
+                            <p class="card-text">Statut</p>  
+                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                            <button class="btn btn-primary ">Détails</button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Conseiller</th>
-                                <th>Type d'action</th>
-                                <th>Date</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <td>info conseiller à recup</td>
-                        <td>info conseiller à récup</td>
-                        <td>info conseiller à récup</td>
-                        
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-sm-4 ">
-                    <br><br>
-                    <button class="btn btn-primary btn-block" onclick="location.href = ''">Détail de l'historique</button>
                 </div>
             </div>
         </div>
