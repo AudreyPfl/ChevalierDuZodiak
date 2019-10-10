@@ -25,7 +25,7 @@
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
                     <button class="btn btn-primary" style="color: darkturquoise" id="inscrire" >S'inscrire</button>
-                    <button class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
+                    <button  class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
                 </form>
             </nav>
         </div>
@@ -35,10 +35,11 @@
                 e.preventDefault();
                 $('#connection').modal('show');
             })
-            $("#inscrire").on("click", function (e){  
+            $("#inscrire").on("click", function (e) {
                 e.preventDefault();
-            location.href ='inscription';
+                location.href = 'inscription';
             })
+
         </script>
 
 
@@ -52,8 +53,8 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="register">
+                    <form action="register">
+                        <div class="modal-body">
                             <div class="form-group">
 
                                 <input class="form-control text-center"
@@ -67,14 +68,13 @@
                                        name="mdp" value="${param['mdp']}"
                                        type="password" placeholder="mot de passe" required="">
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>                           
+                            <button type="button" class="btn btn-primary" id="conexion" action="connexion" method="POST">Se connecter</button>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>       
-                        
-                        <button type="button" class="btn btn-primary" >Se connecter</button>
-                        
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

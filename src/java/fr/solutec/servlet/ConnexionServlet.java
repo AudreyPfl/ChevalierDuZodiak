@@ -5,7 +5,13 @@
  */
 package fr.solutec.servlet;
 
+import fr.solutec.bean.Admin;
+import fr.solutec.bean.Client;
+import fr.solutec.bean.Conseiller;
 import fr.solutec.bean.Personne;
+import fr.solutec.dao.AdminDao;
+import fr.solutec.dao.ClientDao;
+import fr.solutec.dao.ConseillerDao;
 import fr.solutec.dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -74,15 +80,28 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String mdp = request.getParameter("mdp");
-        
         try{
+            String log = request.getParameter("mail");
+            String pw = request.getParameter("mdp");
+            Client cl = ClientDao.getByLoginPass(log, pw);
+            Conseiller co = ConseillerDao.getByLoginPass(log, pw);
+            Admin ad = AdminDao.getByLoginPass(log, pw);
             
-           // request.getSession(true).setAttribute("membre");
-            response.sendRedirect("accueil");
+            if (cl != null){
+                request.getSession(true).setAttribute("client", cl);
+                response.sendRedirect("espaceclient");}
+            else if (co != null){
+                request.getSession(true).setAttribute("conseiller", co);
+                response.sendRedirect("espaceconseiller");}
+            else if (ad != null){
+                request.getSession(true).setAttribute("admin", ad);
+                response.sendRedirect("espaceadmin");
+                
+            }else{
+                request.setAttribute("msg", "login ou mot de passe incorrect");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         } catch (Exception e){
-
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
         }
