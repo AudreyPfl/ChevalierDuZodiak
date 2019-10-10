@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modal Decouvert</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,31 +28,31 @@
                 integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
     </head>
-    </head>
-    <body>
-        <div class="modal fade" id="ModalDecouvert" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center w-100 " id="ModalLabel">Demande de découvert</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Montant souhaité:</label>
-                                <input type="number" class="form-control" id="montant" placeholder="€">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                        <button type="button" class="btn btn-primary">Envoyer la demande</button>
-                    </div>
+</head>
+<body>
+    <div class="modal fade" id="ModalDecouvert" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center w-100 " id="ModalLabel">Demande de découvert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Montant souhaité:</label>
+                            <input type="number" class="form-control" id="montant" placeholder="€">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                    <button type="button" class="btn btn-primary">Envoyer la demande</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

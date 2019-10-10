@@ -18,7 +18,7 @@
 
     </head>
     <body>
-       <div>
+        <div>
             <nav class="navbar navbar-dark bg-dark ">
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
@@ -29,9 +29,9 @@
         </div>
 
         <script>
-            
-            $("#déco").on("click", function (e){                
-            location.href ='deco';
+
+            $("#déco").on("click", function (e) {
+                location.href = 'deco';
             })
         </script>
 
