@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 10 oct. 2019 à 07:31
+-- Généré le :  jeu. 10 oct. 2019 à 12:11
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -40,7 +40,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`idadmin`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`idadmin`, `nom`, `prenom`, `sexe`, `mdp`, `email`) VALUES
+(1, 'admin', 'admin', 'Femme', 'admin', 'admin@admin.admin');
 
 -- --------------------------------------------------------
 
@@ -61,7 +68,14 @@ CREATE TABLE IF NOT EXISTS `client` (
   PRIMARY KEY (`idclient`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_conseiller1_idx` (`idconseiller`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`idclient`, `nom`, `prenom`, `email`, `sexe`, `mdp`, `idconseiller`, `statut`) VALUES
+(1, 'test', 'test', 'test@test.test', 'Femme', 'test', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -78,9 +92,17 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `decouvert` double NOT NULL,
   `idclient` int(11) NOT NULL,
   PRIMARY KEY (`idcompte`),
+  UNIQUE KEY `carte_UNIQUE` (`carte`),
   UNIQUE KEY `idcompte_UNIQUE` (`idcompte`),
   KEY `fk_client2_idx` (`idclient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `compte`
+--
+
+INSERT INTO `compte` (`idcompte`, `solde`, `carte`, `statut`, `decouvert`, `idclient`) VALUES
+(1, '0', 1, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +122,14 @@ CREATE TABLE IF NOT EXISTS `conseiller` (
   `statut` tinyint(4) NOT NULL,
   PRIMARY KEY (`idconseiller`),
   KEY `fk_admin1_idx` (`idadmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `conseiller`
+--
+
+INSERT INTO `conseiller` (`idconseiller`, `nom`, `prenom`, `email`, `sexe`, `mdp`, `idadmin`, `statut`) VALUES
+(1, 'con', 'con', 'con@con.con', 'Femme', 'con', 1, 1);
 
 -- --------------------------------------------------------
 
