@@ -9,60 +9,46 @@ package fr.solutec.bean;
  *
  * @author esic
  */
-public class Client {
+public class Client extends Personne {
     private int idclient;
-    private Personne personne;
+
     private int idconseiller;
     private boolean statut;
 
     public Client() {
     }
 
-    public Client(int idclient, Personne personne, int idconseiller, boolean statut) {
+    public Client(int idclient, int idconseiller, boolean statut) {
         this.idclient = idclient;
-        this.personne = personne;
         this.idconseiller = idconseiller;
         this.statut = statut;
-     
     }
 
-    public Client(Personne personne, int idconseiller, boolean statut) {
-        this.personne = personne;
+    public Client(int idclient, int idconseiller, boolean statut, String nom, String prenom, String email, String sexe, String mdp) {
+        super(nom, prenom, email, sexe, mdp);
+        this.idclient = idclient;
         this.idconseiller = idconseiller;
         this.statut = statut;
     }
-    
-    
 
     public int getIdclient() {
         return idclient;
     }
 
-    public Personne getPersonne() {
-        return personne;
-    }
-
-
     public int getIdconseiller() {
         return idconseiller;
+    }
+
+    public boolean isStatut() {
+        return statut;
     }
 
     public void setIdclient(int idclient) {
         this.idclient = idclient;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
-  
-
     public void setIdconseiller(int idconseiller) {
         this.idconseiller = idconseiller;
-    }
-
-    public boolean isStatut() {
-        return statut;
     }
 
     public void setStatut(boolean statut) {
@@ -71,13 +57,10 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "idclient=" + idclient + ", personne=" + personne + ", idconseiller=" + idconseiller + ", statut=" + statut + '}';
+        return "Client{" + "idclient=" + idclient + ", idconseiller=" + idconseiller + ", statut=" + statut + '}';
     }
 
-   
-
-
-
+    
     
     
     

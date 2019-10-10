@@ -5,70 +5,52 @@
  */
 package fr.solutec.bean;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author esic
  */
-public class Conseiller {
+public class Conseiller extends Personne{
     private int idconseiller;
-    private Personne personne;
+  
     private int idadmin;
     private boolean statut;
 
     public Conseiller() {
     }
 
-    public Conseiller(int idconseiller, Personne personne, int idadmin) {
+    public Conseiller(int idconseiller, int idadmin, boolean statut) {
         this.idconseiller = idconseiller;
-        this.personne = personne;
-        this.idadmin = idadmin;
-    }
-
-    public Conseiller(Personne personne, int idadmin) {
-        this.personne = personne;
-        this.idadmin = idadmin;
-    }
-
-    public Conseiller(int idconseiller, Personne personne, int idadmin, boolean statut) {
-        this.idconseiller = idconseiller;
-        this.personne = personne;
         this.idadmin = idadmin;
         this.statut = statut;
     }
 
-    public Conseiller(Personne personne, int idadmin, boolean statut) {
-        this.personne = personne;
+    public Conseiller(int idconseiller, int idadmin, boolean statut, String nom, String prenom, String email, String sexe, String mdp) {
+        super(nom, prenom, email, sexe, mdp);
+        this.idconseiller = idconseiller;
         this.idadmin = idadmin;
         this.statut = statut;
     }
-    
 
     public int getIdconseiller() {
         return idconseiller;
-    }
-
-    public Personne getPersonne() {
-        return personne;
     }
 
     public int getIdadmin() {
         return idadmin;
     }
 
+    public boolean isStatut() {
+        return statut;
+    }
+
     public void setIdconseiller(int idconseiller) {
         this.idconseiller = idconseiller;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
     public void setIdadmin(int idadmin) {
         this.idadmin = idadmin;
-    }
-
-    public boolean isStatut() {
-        return statut;
     }
 
     public void setStatut(boolean statut) {
@@ -77,13 +59,10 @@ public class Conseiller {
 
     @Override
     public String toString() {
-        return "Conseiller{" + "idconseiller=" + idconseiller + ", personne=" + personne + ", idadmin=" + idadmin + ", statut=" + statut + '}';
+        return "Conseiller{" + "idconseiller=" + idconseiller + ", idadmin=" + idadmin + ", statut=" + statut + '}';
     }
     
-    public Conseiller attribConseiller(){
-        Conseiller c = new Conseiller();
-        
-        return c;
-    }
+    
+    
 }
 
