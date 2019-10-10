@@ -83,7 +83,12 @@ public class InscriptionServlet extends HttpServlet {
         String email = request.getParameter("email");
         String sexe = request.getParameter("sexe");
         String mdp = request.getParameter("mdp");
-        int idconseiller = 1;
+        int idconseiller = 0;
+        try {
+            idconseiller = ConseillerDao.ConseillerDispo();
+        } catch (SQLException ex) {
+            Logger.getLogger(InscriptionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         boolean statut = false;
 
         Personne p = new Personne(nom, prenom, email, sexe, mdp);
