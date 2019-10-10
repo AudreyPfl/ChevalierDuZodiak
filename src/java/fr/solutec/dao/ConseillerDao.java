@@ -44,7 +44,7 @@ public class ConseillerDao {
     
     public static int ConseillerDispo() throws SQLException{
         int id = 0;
-        String sql = "SELECT idconseiller FROM client GROUP BY idconseiller HAVING COUNT(idclient)<4 LIMIT 1;";
+        String sql = "SELECT conseiller.idconseiller FROM client RIGHT JOIN conseiller ON (conseiller.idconseiller = client.idconseiller) GROUP BY conseiller.idconseiller HAVING COUNT(conseiller.idconseiller)<4 LIMIT 1;";
         Connection connexion = AccessBD.getConnection();
         Statement requette = connexion.createStatement();  
         ResultSet rs = requette.executeQuery(sql);
