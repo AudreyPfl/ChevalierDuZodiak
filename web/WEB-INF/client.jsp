@@ -27,12 +27,12 @@
                 integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body background = "Ressources/bank.jpg" style="background-size: cover">
 
         <%@include file="navbar.jsp" %> 
         <%@include file="modaldecouvert.jsp" %> 
 
-
+        <div class="container" style="background-color: white">
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
@@ -111,7 +111,7 @@
 
         </div>
 
-
+        </div>
 
 
     </body>
