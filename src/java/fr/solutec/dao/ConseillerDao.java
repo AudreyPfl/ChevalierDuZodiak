@@ -5,12 +5,13 @@
  */
 package fr.solutec.dao;
 
-import fr.solutec.bean.Client;
+import fr.solutec.bean.*;
 import fr.solutec.bean.Conseiller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -40,17 +41,6 @@ public class ConseillerDao {
         }
         return resultat;
     }
-import fr.solutec.bean.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-/**
- *
- * @author esic
- */
-public class ConseillerDao {
     
     public static int ConseillerDispo() throws SQLException{
         int id = 0;
