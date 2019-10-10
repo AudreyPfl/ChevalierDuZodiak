@@ -36,7 +36,7 @@
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
-                    <p>Bonjour "Nom de la personne a recup", bienvenue dans votre espace client <br>
+                    <p>Bonjour ${client.prenom} ${client.nom}, bienvenue dans votre espace client <br>
                         Style bg à mettre</p>
                 </div>
             </div>

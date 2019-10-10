@@ -31,11 +31,14 @@ public class ClientDao {
 
         if (rs.next()) {
             resultat = new Client();
-            resultat.getPersonne().setNom(rs.getString("nom"));
-            resultat.getPersonne().setPrenom(rs.getString("prenom"));
-            resultat.getPersonne().setEmail(rs.getString("email"));
-            resultat.getPersonne().setMdp(rs.getString("mdp"));
-            resultat.getPersonne().setSexe(rs.getString("sexe"));
+            resultat.setNom(rs.getString("nom"));
+            resultat.setPrenom(rs.getString("prenom"));
+            resultat.setEmail(rs.getString("email"));
+            resultat.setMdp(rs.getString("mdp"));
+            resultat.setSexe(rs.getString("sexe"));
+            resultat.setIdclient(rs.getInt("idclient"));
+            resultat.setIdconseiller(rs.getInt("idconseiller"));
+            resultat.setStatut(rs.getBoolean("statut"));
             
         }
         return resultat;

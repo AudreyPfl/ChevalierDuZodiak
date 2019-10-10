@@ -50,11 +50,11 @@ public class UserDao {
         String sql = "INSERT INTO client (nom, prenom, email, sexe, mdp, idconseiller, statut) VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection connexion = AccessBD.getConnection();
         PreparedStatement requette = connexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        requette.setString(1, client.getPersonne().getNom());
-        requette.setString(2, client.getPersonne().getPrenom());
-        requette.setString(3, client.getPersonne().getEmail());
-        requette.setString(4, client.getPersonne().getSexe());
-        requette.setString(5, client.getPersonne().getMdp());
+        requette.setString(1, client.getNom());
+        requette.setString(2, client.getPrenom());
+        requette.setString(3, client.getEmail());
+        requette.setString(4, client.getSexe());
+        requette.setString(5, client.getMdp());
         requette.setInt(6, client.getIdconseiller());
         requette.setBoolean(7, client.isStatut());
         
