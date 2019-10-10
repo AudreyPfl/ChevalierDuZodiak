@@ -47,17 +47,21 @@ public class CompteDao {
     
     public static void CreateCompteClient(Client c) throws SQLException{
         
-        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, ?, 1, 0, ?)";
-        Connection connexion = AccessBD.getConnection();
-        PreparedStatement requette1 = connexion.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-        requette1.setInt(2, c.getIdclient());
+        String sql1 = "INSERT INTO compte (solde, carte, statut, decouvert, idclient) VALUES (0, 0, 1, 0, ?)";
+        Connection connexion1 = AccessBD.getConnection();
+        PreparedStatement requette1 = connexion1.prepareStatement(sql1);
+        requette1.setInt(1, c.getIdclient());
         requette1.execute();
-        ResultSet rs = requette1.getGeneratedKeys();
-        
-        int carte = 0;
-         if (rs.next()) {
-            carte = rs.getInt(1);     
+        //ResultSet rs = requette1.getGeneratedKeys();
+        /*
+        int id = 0;
+        if (rs.next()) {
+            id = rs.getInt(1);     
         }
+        String sql2 = "UPDATE compte SET carte = ? WHERE idcompte=" + id;
+        PreparedStatement requette2 = connexion1.prepareStatement(sql2);
+        requette2.setInt(1, id);
+        requette2.execute();*/
     }
     
 }

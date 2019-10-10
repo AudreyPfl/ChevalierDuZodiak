@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `decouvert` double NOT NULL,
   `idclient` int(11) NOT NULL,
   PRIMARY KEY (`idcompte`),
-  UNIQUE KEY `carte_UNIQUE` (`carte`),
   UNIQUE KEY `idcompte_UNIQUE` (`idcompte`),
   KEY `fk_client2_idx` (`idclient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
