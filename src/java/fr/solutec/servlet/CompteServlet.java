@@ -5,13 +5,20 @@
  */
 package fr.solutec.servlet;
 
+import fr.solutec.bean.Client;
+import fr.solutec.bean.Compte;
+import fr.solutec.bean.Conseiller;
+import fr.solutec.dao.CompteDao;
+import fr.solutec.dao.ConseillerDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -59,7 +66,30 @@ public class CompteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request.getRequestDispatcher("WEB-INF/comptes.jsp").forward(request, response);
+        try {
+            
+           HttpSession session = request.getSession(true);
+            Client c = (Client) session.getAttribute("client");
+            
+            List<Compte> comptes = CompteDao.getAllCompteByClient(c);
+            Conseiller cons = ConseillerDao.getConsByClient(c);
+            
+            request.setAttribute("listecompte", comptes);
+            
+            request.setAttribute("client", c);
+            
+            request.setAttribute("cons", cons);
+            
+            
+            request.getRequestDispatcher("WEB-INF/comptes.jsp").forward(request, response);
+            
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+        
+        
+        
         
     }
 

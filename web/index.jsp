@@ -81,8 +81,12 @@
 
 
         </div>
-
-
+                <br><br><br><br><br><br><br><br><br><br>
+                <div>
+                    <img src="Ressources/tirelire.png" class="rounded mx-auto d-block" width="500" height="500">
+                    
+                    
+                </div>
 
 
 

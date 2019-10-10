@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -62,6 +64,31 @@ public class CompteDao {
         PreparedStatement requette2 = connexion1.prepareStatement(sql2);
         requette2.setInt(1, id);
         requette2.execute();
+    }
+    
+    public static List<Compte> getAllCompteByClient(Client c) throws SQLException{
+        List<Compte> result = new ArrayList<>();
+        int id = c.getIdclient();
+        
+        String sql = "SELECT * FROM compte WHERE idclient=" + id ;
+        Connection connexion = AccessBD.getConnection();
+       
+        Statement requete = connexion.createStatement();
+        
+        ResultSet rs = requete.executeQuery(sql);
+        
+        while(rs.next()){
+            Compte co = new Compte();
+            co.setCarte(rs.getInt("carte"));
+            co.setDecouvert(rs.getDouble("decouvert"));
+            co.setIdclient(rs.getInt("idclient"));
+            co.setIdcompte(rs.getInt("idcompte"));
+            co.setSolde(rs.getDouble("solde"));
+            
+            result.add(co);
+        }
+                
+        return result;       
     }
     
 }
