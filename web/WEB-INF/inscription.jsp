@@ -28,10 +28,9 @@
     </div>
 
     <script>
-        $("#connect1").on("click", function (e) {
-            e.preventDefault();
-            $('#connection1').modal('show');
-        })
+        function popUp(){
+            alert("Votre demande d'inscription a bien été enregistrée!");
+        }
     </script>
     <div class="modal fade" id="connection1" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -97,7 +96,7 @@
                     <br>
                     <input type="password" class="form-control text-center" placeholder="Mot de passe" name="mdp">
                     <br>
-                    <button type="submit" class="btn btn-primary btn-block">Demande d'inscription</button>
+                    <button type="submit" class="btn btn-primary btn-block" onclick="popUp()">Demande d'inscription</button>
                     <button type="button" onclick="location.href = 'index.jsp'" class="btn btn-link btn-block">Retour</button>
                 </div>
             </form>           
