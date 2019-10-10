@@ -15,6 +15,7 @@ public class Compte {
     private int carte;
     private boolean statut;
     private double decouvert;
+    private int idclient;
 
     public Compte() {
     }
@@ -26,6 +27,25 @@ public class Compte {
         this.statut = statut;
         this.decouvert = decouvert;
     }
+
+    public Compte(double solde, int carte, boolean statut, double decouvert, int idclient) {
+        this.solde = solde;
+        this.carte = carte;
+        this.statut = statut;
+        this.decouvert = decouvert;
+        this.idclient = idclient;
+    }
+
+    public Compte(int idcompte, double solde, int carte, boolean statut, double decouvert, int idclient) {
+        this.idcompte = idcompte;
+        this.solde = solde;
+        this.carte = carte;
+        this.statut = statut;
+        this.decouvert = decouvert;
+        this.idclient = idclient;
+    }
+    
+    
 
     public int getIdcompte() {
         return idcompte;
@@ -67,10 +87,22 @@ public class Compte {
         this.decouvert = decouvert;
     }
 
+    public int getIdclient() {
+        return idclient;
+    }
+
+    public void setIdclient(int idclient) {
+        this.idclient = idclient;
+    }
+
     @Override
     public String toString() {
-        return "Compte{" + "idcompte=" + idcompte + ", solde=" + solde + ", carte=" + carte + ", statut=" + statut + ", decouvert=" + decouvert + '}';
+        return "Compte{" + "idcompte=" + idcompte + ", solde=" + solde + ", carte=" + carte + ", statut=" + statut + ", decouvert=" + decouvert + ", idclient=" + idclient + '}';
     }
+    
+    
+
+   
 
     
     
