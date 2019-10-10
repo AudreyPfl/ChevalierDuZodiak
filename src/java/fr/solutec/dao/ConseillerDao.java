@@ -17,14 +17,14 @@ import java.sql.SQLException;
  * @author stagiaire
  */
 public class ConseillerDao {
-    public static Conseiller getByLoginPass(String login, String mdp) throws SQLException {
+    public static Conseiller getByLoginPass(String mail, String mdp) throws SQLException {
         Conseiller resultat = null;
 
-        String sql = "SELECT * FROM user WHERE mail=? AND mdp=?";
+        String sql = "SELECT * FROM conseiller WHERE email=? AND mdp=?";
         Connection connexion = AccessBD.getConnection();
 
         PreparedStatement requette = connexion.prepareStatement(sql);
-        requette.setString(1, login);
+        requette.setString(1, mail);
         requette.setString(2, mdp);
 
         ResultSet rs = requette.executeQuery();
