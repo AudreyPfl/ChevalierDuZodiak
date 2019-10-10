@@ -1,6 +1,6 @@
 <%-- 
-    Document   : client
-    Created on : 9 oct. 2019, 14:53:30
+    Document   : comptes
+    Created on : 10 oct. 2019, 09:38:02
     Author     : esic
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Espace Client</title>
+        <title>Espace Compte</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
@@ -28,15 +28,14 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-
+                
         <%@include file="navbar.jsp" %> 
         <%@include file="modaldecouvert.jsp" %> 
-
-
+        
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
-                    <p>Bonjour "Nom de la personne a recup", bienvenue dans votre espace client <br>
+                    <p>Votre compte<br>
                         Style bg à mettre</p>
                 </div>
             </div>
@@ -52,22 +51,22 @@
                     <br>
                     <br>
 
-                    <h3>Votre compte</h3>
+                    <h3>Historique de votre compte</h3>
 
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>N° de compte</th>
                                 <th>Solde</th>
-                                <th>N° Carte</th>
-                                <th>Découvert autorisé</th>
+                                <th>Date</th>
+                                <th>Action réalisée</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <td>info client à recup</td>
-                        <td>info client à récup</td>
-                        <td>info client à récup</td>
-                        <td>info client à récup</td>
+                            <td>info client à recup</td>
+                            <td>info client à récup</td>
+                            <td>info client à récup</td>
+                            <td>info client à récup</td>
                         </tbody>
 
 
@@ -76,6 +75,10 @@
                     <br>
                     <br>
                     <hr>
+                    
+                    <div>
+                        <button class="btn btn-primary btn-block" onclick="location.href='espaceclient'">Retour Espace Client</button>
+                    </div>
 
                 </div>
 
@@ -83,9 +86,27 @@
 
                 <div class="col-sm-4">
                     <div>
-                        <button class="btn btn-primary btn-block" onclick="location.href = 'compte'">Consulter mon compte</button>
-                        <br>
+                        <div>
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Découvert autorisé</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <td>Info client à récup</td>
+                                    
+                                </tbody>
+                             
+                            </table>
+                            
+                        </div>
+                        
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#ModalDecouvert">Demande de découvert</button>
+                        <br><br><br>
+                        
+                        <button class="btn btn-primary btn-block">Activer/Désactiver ma carte</button>
+                        <br>
                     </div>
 
                     <br>
@@ -103,16 +124,15 @@
                 </div>
 
 
-
-
                 <br>
                 <br>
+
+
+
             </div>
 
         </div>
 
-
-        
 
     </body>
 </html>

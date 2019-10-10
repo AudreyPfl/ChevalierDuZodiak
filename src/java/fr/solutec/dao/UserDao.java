@@ -19,12 +19,12 @@ import java.util.List;
  * @author Joel B
  */
 public class UserDao {
-    /*
-     public static Client getByLoginPass(String login, String mdp) throws SQLException {
-     Client resultat = null;
 
-     String sql = "SELECT * FROM user WHERE mail=?AND mdp=?";
-     Connection connexion = AccessBD.getConnection();
+    public static Personne getByLoginPass(String login, String mdp) throws SQLException {
+        Personne resultat = null;
+
+        String sql = "SELECT * FROM user WHERE mail=? AND mdp=?";
+        Connection connexion = AccessBD.getConnection();
 
      PreparedStatement requette = connexion.prepareStatement(sql);
      requette.setString(1, login);
@@ -32,16 +32,18 @@ public class UserDao {
 
      ResultSet rs = requette.executeQuery();
 
-     if (rs.next()) {
-     resultat = new Client();
-     resultat.setId(rs.getInt("iduser"));
-     resultat.setNom(rs.getString("nom"));
-     resultat.setPrenom(rs.getString("prenom"));
-     resultat.setEmail(rs.getString("email"));
-     }
-     return resultat;
-     }
-     */
+        if (rs.next()) {
+            resultat = new Personne();
+            resultat.setNom(rs.getString("nom"));
+            resultat.setPrenom(rs.getString("prenom"));
+            resultat.setEmail(rs.getString("email"));
+            resultat.setMdp(rs.getString("mdp"));
+            resultat.setSexe(rs.getString("sexe"));
+            
+        }
+        return resultat;
+    }
+
 
     public static Client insertClient(Client client) throws SQLException {
         Client c = null;

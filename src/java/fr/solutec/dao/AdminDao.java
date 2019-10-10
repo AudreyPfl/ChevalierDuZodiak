@@ -5,7 +5,7 @@
  */
 package fr.solutec.dao;
 
-import fr.solutec.bean.Client;
+import fr.solutec.bean.Admin;
 import fr.solutec.bean.Conseiller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,9 +16,9 @@ import java.sql.SQLException;
  *
  * @author stagiaire
  */
-public class ConseillerDao {
-    public static Conseiller getByLoginPass(String login, String mdp) throws SQLException {
-        Conseiller resultat = null;
+public class AdminDao {
+    public static Admin getByLoginPass(String login, String mdp) throws SQLException {
+        Admin resultat = null;
 
         String sql = "SELECT * FROM user WHERE mail=? AND mdp=?";
         Connection connexion = AccessBD.getConnection();
@@ -30,7 +30,7 @@ public class ConseillerDao {
         ResultSet rs = requette.executeQuery();
 
         if (rs.next()) {
-            resultat = new Conseiller();
+            resultat = new Admin();
             resultat.getPersonne().setNom(rs.getString("nom"));
             resultat.getPersonne().setPrenom(rs.getString("prenom"));
             resultat.getPersonne().setEmail(rs.getString("email"));
@@ -40,28 +40,4 @@ public class ConseillerDao {
         }
         return resultat;
     }
-import fr.solutec.bean.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-/**
- *
- * @author esic
- */
-public class ConseillerDao {
-    
-    public static int ConseillerDispo() throws SQLException{
-        int id = 0;
-        String sql = "SELECT idconseiller FROM client GROUP BY idconseiller HAVING COUNT(idclient)<4 LIMIT 1;";
-        Connection connexion = AccessBD.getConnection();
-        Statement requette = connexion.createStatement();  
-        ResultSet rs = requette.executeQuery(sql);
-        
-        if(rs.next()){
-            id = rs.getInt("idconseiller");
-        }
-        return id;
-    }    
 }
