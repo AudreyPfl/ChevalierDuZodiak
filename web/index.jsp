@@ -35,7 +35,8 @@
                 e.preventDefault();
                 $('#connection').modal('show');
             })
-            $("#inscrire").on("click", function (e){                
+            $("#inscrire").on("click", function (e){  
+                e.preventDefault();
             location.href ='inscription';
             })
         </script>
