@@ -7,8 +7,12 @@ package fr.solutec.servlet;
 
 import fr.solutec.bean.Client;
 import fr.solutec.bean.Compte;
+import fr.solutec.bean.Conseiller;
+import fr.solutec.dao.CompteDao;
+import fr.solutec.dao.ConseillerDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,13 +69,20 @@ public class ClientServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         Client c = (Client) session.getAttribute("client");
         
+        
         try {
+            List<Compte> comptes = CompteDao.getAllCompteByClient(c);
+            Conseiller cons = ConseillerDao.getConsByClient(c);
+            
+            request.setAttribute("listecompte", comptes);
+            
             request.setAttribute("client", c);
+            request.getSession(true).setAttribute("client", c);
+            request.setAttribute("cons", cons);
             request.getRequestDispatcher("WEB-INF/client.jsp").forward(request, response);
 
         } catch (Exception e) {
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
+            
         }
 
     }
