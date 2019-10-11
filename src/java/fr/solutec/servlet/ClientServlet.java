@@ -110,6 +110,8 @@ public class ClientServlet extends HttpServlet {
             request.setAttribute("client", c);
             String id = request.getParameter("id");
             request.setAttribute("id", id);
+            String deco = request.getParameter("dec");
+            request.setAttribute("dec", deco);
             response.sendRedirect("compte");
             
             

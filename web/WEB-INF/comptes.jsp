@@ -96,7 +96,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <td>Info à récup</td>
+                                <td>${deco} €</td>
 
                                 </tbody>
 

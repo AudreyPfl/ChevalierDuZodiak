@@ -62,7 +62,7 @@
                                     <th>Solde</th>
                                     <th>N° Carte</th>
                                     <th>Découvert autorisé</th>
-                                    <th>Détails</th>
+                                    <th class="text-center">Détails</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,9 +72,11 @@
                                         <td>${co.solde} €</td>
                                         <td>${co.carte}</td>
                                         <td>${co.decouvert} €</td>
+                                        
                                 <form action="compte" method="POST">
-                                    <td><input type="hidden" name="idrec" value="${co.idcompte}" ></td> 
-                                    <td><button type="submit" class="btn btn-primary btn-block">Détails du compte</button></td>
+                                    <td><input type="hidden" name="idrec" value="${co.idcompte}" >
+                                    <input type="hidden" name="dec" value="${co.decouvert}" >
+                                    <button type="submit" class="btn btn-primary btn-block">Détails du compte</button></td>
                                 </form>
                                 </tr>
                             </c:forEach>

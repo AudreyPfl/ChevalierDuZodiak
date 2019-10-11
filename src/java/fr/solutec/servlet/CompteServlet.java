@@ -120,6 +120,10 @@ public class CompteServlet extends HttpServlet {
             String idc = request.getParameter("idrec");
             int id = Integer.parseInt(idc);
             
+            String dec = request.getParameter("dec");
+            Double deco = Double.parseDouble(dec);
+            request.setAttribute("deco", deco);
+            
             List<Historique> hi = new ArrayList<>();
             hi = CompteDao.getAllHistoByCompte(id);
             
