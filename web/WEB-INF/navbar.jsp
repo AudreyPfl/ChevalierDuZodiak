@@ -4,6 +4,8 @@
     Author     : stagiaire
 --%>
 
+<%@page import="fr.solutec.bean.Personne"%>
+<%@page import="fr.solutec.bean.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,12 +19,15 @@
         <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 
     </head>
-    <body >
+    <body  >
+
         <div>
             <nav class="navbar navbar-dark bg-dark ">
                 <a class="navbar-brand" style="color: white" onclick="location.href = 'index.jsp'">BangBank</a>
                 <form class="form-inline">
-                    <img src="Ressources/profil.png" alt="" width="40" height="40" onclick="" >                 
+                    <div class="span4 proj-div" data-toggle="modal" data-target="#profil">
+                        <img src="Ressources/profil.png" alt="" width="40" height="40" >
+                    </div>              
                     <button class="btn btn-primary" type="button"  style="color: darkturquoise" id="deco">Se déconnecter</button>                    
                 </form>
             </nav>
@@ -54,6 +59,64 @@
                                        name="mail" value="${param['mail']}"
                                        type="email" placeholder="e-mail" required="">
 
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                        <button type="button" class="btn btn-primary">Se connecter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="profil" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100" id="exampleModalLongTitle">Profil</h5>
+                        <hr>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="modifProfil" method="POST">
+                            <div class="form-group">
+                                <p class= "text-center">
+                                    <% HttpSession sess = request.getSession(true);
+                                        Personne p = (Personne) sess.getAttribute("usersession");
+                                        out.println(p.getNom());
+                                    %>
+
+                                <br><hr></p>
+
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mail" value="<% out.println(p.getEmail() + "dans ta face java");%>"
+                                       type="email" placeholder="mail" required="">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
                             </div>
                             <br>
                             <div class="form-group">
