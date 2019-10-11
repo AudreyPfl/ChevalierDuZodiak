@@ -46,62 +46,63 @@
         <div class="container">
             <h3>Gestion des clients</h3>
             <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre client</h5>
-                            <p class="card-text">Solde</p>
-                            <p class="card-text">Découvert autorisé</p>
-                            <p class="card-text">Statut</p>  
-                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
-                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
-                            <button class="btn btn-primary ">Détails</button>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                            <div class="card-header">Id client : ${cl.idclient}</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${cl.nom} ${cl.prenom}</h5>
+                                <p class="card-text">Solde = ${Solde}€</p>
+                                <p class="card-text">Découvert autorisé = ${cl.decouvert}</p>
+                                <p class="card-text">Statut : ${cl.statut}</p>  
+                                <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                                <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                                <button class="btn btn-primary ">Détails</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre client</h5>
-                            <p class="card-text">Solde</p>
-                            <p class="card-text">Découvert autorisé</p>
-                            <p class="card-text">Statut</p>  
-                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
-                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
-                            <button class="btn btn-primary ">Détails</button>
+                    <div class="col-sm-3">
+                        <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                            <div class="card-header">Id client : ${cl.idclient}</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${cl.nom} ${cl.prenom}</h5>
+                                <p class="card-text">Solde = ${Solde}€</p>
+                                <p class="card-text">Découvert autorisé = ${cl.decouvert}</p>
+                                <p class="card-text">Statut : ${cl.statut}</p>  
+                                <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                                <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                                <button class="btn btn-primary ">Détails</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre client</h5>
-                            <p class="card-text">Solde</p>
-                            <p class="card-text">Découvert autorisé</p>
-                            <p class="card-text">Statut</p>  
-                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
-                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
-                            <button class="btn btn-primary ">Détails</button>
+                    <div class="col-sm-3">
+                        <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                            <div class="card-header">Id client : ${cl.idclient}</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${cl.nom} ${cl.prenom}</h5>
+                                <p class="card-text">Solde = ${Solde}€</p>
+                                <p class="card-text">Découvert autorisé = ${cl.decouvert}</p>
+                                <p class="card-text">Statut : ${cl.statut}</p>  
+                                <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                                <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                                <button class="btn btn-primary ">Détails</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre client</h5>
-                            <p class="card-text">Solde</p>
-                            <p class="card-text">Découvert autorisé</p>
-                            <p class="card-text">Statut</p>  
-                            <button class="btn btn-primary ">Nouvelle demande de découvert</button>
-                            <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
-                            <button class="btn btn-primary ">Détails</button>
+                    <div class="col-sm-3">
+                        <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                            <div class="card-header">Id client : ${cl.idclient}</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${cl.nom} ${cl.prenom}</h5>
+                                <p class="card-text">Solde = ${Solde}€</p>
+                                <p class="card-text">Découvert autorisé = ${cl.decouvert}</p>
+                                <p class="card-text">Statut : ${cl.statut}</p>  
+                                <button class="btn btn-primary ">Nouvelle demande de découvert</button>
+                                <button class="btn btn-primary ">Nouvelle demande d'inscription</button>
+                                <button class="btn btn-primary ">Détails</button>
+                            </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
