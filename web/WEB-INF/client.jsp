@@ -34,93 +34,98 @@
         <%@include file="modaldecouvert.jsp" %> 
 
         <div class="container" style="background-color: white">
-        <div class="container">
-            <div class="card text-white bg-dark mb-3 text-center">
-                <div class="card-body">
-                    <p>Bonjour ${client.prenom} ${client.nom}, bienvenue dans votre espace client <br>
-                        Style bg à mettre</p>
+            <div class="container">
+                <div class="card text-white bg-dark mb-3 text-center">
+                    <div class="card-body">
+                        <p>Bonjour ${client.prenom} ${client.nom}, bienvenue dans votre espace client <br>
+                            Style bg à mettre</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <br>
-        <br>
+            <br>
+            <br>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <hr>
-                    <br>
-                    <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <hr>
+                        <br>
+                        <br>
 
-                    <h3>Votre compte</h3>
+                        <h3>Votre compte</h3>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>N° de compte</th>
-                                <th>Solde</th>
-                                <th>N° Carte</th>
-                                <th>Découvert autorisé</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${listecompte}" var="co">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td scope="row">${co.idcompte}</td>
-                                    <td>${co.solde} €</td>
-                                    <td>${co.carte}</td>
-                                    <td>${co.decouvert} €</td>
+                                    <th>N° de compte</th>
+                                    <th>Solde</th>
+                                    <th>N° Carte</th>
+                                    <th>Découvert autorisé</th>
+                                    <th>Détails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${listecompte}" var="co">
+                                    <tr>
+                                        <td scope="row">${co.idcompte}</td>
+                                        <td>${co.solde} €</td>
+                                        <td>${co.carte}</td>
+                                        <td>${co.decouvert} €</td>
+                                <form action="compte" method="POST">
+                                    <td><input type="hidden" name="idrec" value="${co.idcompte}" ></td> 
+                                    <td><button type="submit" class="btn btn-primary btn-block">Détails du compte</button></td>
+                                </form>
                                 </tr>
                             </c:forEach>
-                        </tbody>
+                            </tbody>
 
 
-                    </table>
+                        </table>
 
-                    <br>
-                    <br>
-                    <hr>
-
-                </div>
-
-
-
-                <div class="col-sm-4">
-                    <div>
-                        <button class="btn btn-primary btn-block" onclick="location.href = 'compte'">Consulter mon compte</button>
                         <br>
-                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#ModalDecouvert">Demande de découvert</button>
+                        <br>
+                        <hr>
+
                     </div>
 
-                    <br>
-                    <br>
 
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <div class="card-text">
-                                <p> ${cons.prenom} ${cons.nom} </p>
-                                <p> @ : ${cons.email} </p>
-                            
+
+                    <div class="col-sm-4">
+                        <div>
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#ModalDecouvert">Demande de découvert</button>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
+                            <div class="card-header">Contact</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Votre conseiller</h5>
+                                <div class="card-text">
+                                    <p> ${cons.prenom} ${cons.nom} </p>
+                                    <p> @ : ${cons.email} </p>
+
+                                </div>
+                                <button class="btn btn-primary ">Par Mail</button>
+                                <button class="btn btn-primary ">Par Message</button>
                             </div>
-                            <button class="btn btn-primary ">Par Mail</button>
-                            <button class="btn btn-primary ">Par Message</button>
                         </div>
                     </div>
+
+
+
+
+                    <br>
+                    <br>
                 </div>
 
-
-
-
-                <br>
-                <br>
             </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                
 
         </div>
 

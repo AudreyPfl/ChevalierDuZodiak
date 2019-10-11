@@ -62,10 +62,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${listecompte}" var="l">
-                                <td>${l.idcompte}</td>
-                        <td></td>
-                        <td></td>
+                            <c:forEach items="${hi}" var="h">
+                                <tr>
+                                <th scope="row">${h.idcompte}</th>
+                                <td>${h.date}</td>
+                                <td>${h.type}</td>
+                                </tr>
                             </c:forEach>
                         </tbody>
 
@@ -94,7 +96,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <td>${comptes.decouvert}</td>
+                                <td>Info à récup</td>
 
                                 </tbody>
 

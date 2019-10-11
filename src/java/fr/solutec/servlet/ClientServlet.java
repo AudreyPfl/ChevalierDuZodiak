@@ -67,7 +67,7 @@ public class ClientServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);
-        Client c = (Client) session.getAttribute("client");
+        Client c = (Client) session.getAttribute("usersession");
         
         
         try {
@@ -75,13 +75,16 @@ public class ClientServlet extends HttpServlet {
             Conseiller cons = ConseillerDao.getConsByClient(c);
             
             request.setAttribute("listecompte", comptes);
-            
             request.setAttribute("client", c);
-            request.getSession(true).setAttribute("client", c);
             request.setAttribute("cons", cons);
+            
+            request.getSession(true).setAttribute("client", c);
+            
             request.getRequestDispatcher("WEB-INF/client.jsp").forward(request, response);
 
         } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
             
         }
 
@@ -98,6 +101,23 @@ public class ClientServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            
+            HttpSession session = request.getSession(true);
+            Client c = (Client) session.getAttribute("usersession");
+        
+        try {
+            
+            request.setAttribute("client", c);
+            String id = request.getParameter("id");
+            request.setAttribute("id", id);
+            response.sendRedirect("compte");
+            
+            
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+        
 
     }
 
