@@ -72,11 +72,11 @@
                                         <td>${co.solde} €</td>
                                         <td>${co.carte}</td>
                                         <td>${co.decouvert} €</td>
-                                        
+
                                 <form action="compte" method="POST">
                                     <td><input type="hidden" name="idrec" value="${co.idcompte}" >
-                                    <input type="hidden" name="dec" value="${co.decouvert}" >
-                                    <button type="submit" class="btn btn-primary btn-block">Détails du compte</button></td>
+                                        <input type="hidden" name="dec" value="${co.decouvert}" >
+                                        <button type="submit" class="btn btn-primary btn-block">Détails du compte</button></td>
                                 </form>
                                 </tr>
                             </c:forEach>
@@ -113,18 +113,53 @@
 
                                 </div>
                                 <button class="btn btn-primary ">Par Mail</button>
-                                <button class="btn btn-primary ">Par Message</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMessage" data-whatever="@mdo">Par Message</button>
                             </div>
                         </div>
                     </div>
-
-
-
+                    <script>
+                        $('#modalMessage').on('show.bs.modal', function (event) {
+                            var button = $(event.relatedTarget) 
+                            var recipient = button.data('whatever') // Extract info from data-* attributes
+                            var modal = $(this)
+                            modal.find('.modal-title').text('New message to ' + recipient)
+                            modal.find('.modal-body input').val(recipient)
+                        })
+                        $('#modalMessage').data('bs.modal').handleUpdate();
+                    </script>
 
                     <br>
                     <br>
                 </div>
 
+                <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Nouveau message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="message" method="POST">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Conseiller</label>
+                                        <p type="text" class="text-center" id="conseiller">@ ${cons.nom}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea class="form-control" id="message" rows="10"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-primary">Envoyer message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
