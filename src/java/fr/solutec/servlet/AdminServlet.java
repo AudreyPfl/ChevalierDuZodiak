@@ -8,6 +8,7 @@ package fr.solutec.servlet;
 import fr.solutec.bean.Admin;
 import fr.solutec.bean.*;
 import fr.solutec.dao.AdminDao;
+import fr.solutec.dao.ConseillerDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -92,7 +93,19 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         
+        try {
+           String id = request.getParameter("id");
+            int idc = Integer.parseInt(id);
+          
+            ConseillerDao.ActDesact(idc);
+        
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+        
+        
     }
 
     /**

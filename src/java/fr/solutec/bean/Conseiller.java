@@ -37,6 +37,11 @@ public class Conseiller extends Personne{
         this.idadmin = idadmin;
         this.statut = statut;
     }
+
+    public Conseiller(boolean statut) {
+        this.statut = statut;
+    }
+    
     
     
 

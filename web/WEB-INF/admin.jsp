@@ -64,6 +64,10 @@
                                         <h5 class="card-title">${c.nom} ${c.prenom}</h5>
                                         <p class="card-text">Statut : ${c.statut}</p>
                                         <button class="btn btn-primary ">Modifier</button>
+                                        <form action="espaceadmin" method="POST">
+                                            <input type="hidden" name="id" value="${c.idconseiller}" >
+                                            <button type="submit" class="btn btn-primary">Activer/Désactiver</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -108,8 +112,6 @@
         </div>
         <div class="container">
             <div class="row">
-
-
 
 
             </div>

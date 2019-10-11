@@ -79,8 +79,8 @@ public class ConseillerDao {
         return cons;       
     }
         
-        public static void ActDesact(Conseiller cons) throws SQLException{
-            int id = cons.getIdconseiller();
+        public static void ActDesact(int id) throws SQLException{
+            Conseiller cons = new Conseiller();
             
         String sql = "SELECT statut FROM conseiller WHERE idconseiller=" + id ;
         Connection connexion = AccessBD.getConnection();
@@ -104,6 +104,12 @@ public class ConseillerDao {
         
         ResultSet rs2 = requete2.executeQuery(sql2);
         
+        if(rs2.next()){
+            cons.setStatut(rs2.getBoolean("statut"));
+            
+        }
+        
+        
         }else{
             String sql3 = "UPDATE conseiller SET statut =1 WHERE idconseiller=" + id ;
             
@@ -112,7 +118,13 @@ public class ConseillerDao {
         Statement requete3 = connexion3.createStatement();
         
         ResultSet rs3 = requete3.executeQuery(sql3);
+        
+        if(rs3.next()){
+            cons.setStatut(rs3.getBoolean("statut"));
             
+        } 
+        
+        
         }
     }
     
