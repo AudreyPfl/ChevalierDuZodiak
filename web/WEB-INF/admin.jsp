@@ -47,49 +47,54 @@
             <h3>Gestion des conseillers</h3>
             <hr>
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
                             <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
+                            <button class="btn btn-primary ">Modifier</button>
                             
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
                             <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
+                            <button class="btn btn-primary ">Modifier</button>
                            
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
                             <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
+                            <button class="btn btn-primary ">Modifier</button>
                           
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
                         <div class="card-header">Contact</div>
                         <div class="card-body">
                             <h5 class="card-title">Votre conseiller</h5>
                             <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier paramètres</button>
+                            <button class="btn btn-primary ">Modifier</button>
                             
                         </div>
                     </div>
+                </div>
+                <div class="col-sm-4">
+                    <br><br><br>
+                    <button class="btn btn-secondary btn-block" onclick="location.href = 'inscriptionConseiller'">Ajouter un conseiller</button>
+                    <br>
                 </div>
             </div>
         </div>
@@ -118,6 +123,15 @@
                     <button class="btn btn-primary btn-block" onclick="location.href = ''">Détail de l'historique</button>
                 </div>
             </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                
+                
+                
+                
+            </div>
+
         </div>
     </body>
 </html>

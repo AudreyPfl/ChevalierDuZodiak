@@ -32,6 +32,12 @@ public class Conseiller extends Personne{
         this.statut = statut;
     }
     
+    public Conseiller(int idadmin, boolean statut, String nom, String prenom, String email, String sexe, String mdp) {
+        super(nom, prenom, email, sexe, mdp);
+        this.idadmin = idadmin;
+        this.statut = statut;
+    }
+    
     
 
     public int getIdconseiller() {
