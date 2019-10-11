@@ -114,10 +114,6 @@ public class ConseillerDao {
         ResultSet rs3 = requete3.executeQuery(sql3);
             
         }
-    
-    
-    
-    
     }
     
    
