@@ -78,5 +78,32 @@ public class ConseillerDao {
                 
         return cons;       
     }
-    
+   
+    public static List <Client> getAllClientByCons(Conseiller cons) throws SQLException{
+        List <Client> AllClient = new ArrayList<>(); 
+        
+        int Idcons = cons.getIdconseiller();
+        
+        String sql = "SELECT * FROM client INNER JOIN compte ON client.idclient=compte.idclient WHERE idconseiller =" + Idcons;
+        Connection connexion = AccessBD.getConnection();
+        
+        Statement requette = connexion.createStatement();
+        
+        ResultSet rs = requette.executeQuery(sql);
+        
+        while (rs.next()){
+            Client client = new Client();
+            client.setIdconseiller(rs.getInt("idconseiller"));
+            client.setNom(rs.getString("nom"));
+            client.setPrenom(rs.getString("prenom"));
+            client.setEmail(rs.getString("email"));
+            client.setSexe(rs.getString("sexe"));
+            client.setMdp(rs.getString("mdp"));
+            client.setIdconseiller(rs.getInt("idconseiller"));
+            client.setStatut(rs.getBoolean("statut"));
+            
+            AllClient.add(client);
+        }
+        return AllClient;
+    }
 }
