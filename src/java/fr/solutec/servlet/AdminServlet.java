@@ -6,9 +6,14 @@
 package fr.solutec.servlet;
 
 import fr.solutec.bean.Admin;
-import fr.solutec.bean.Client;
+import fr.solutec.bean.*;
+import fr.solutec.dao.AdminDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,10 +67,12 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        Admin a = (Admin) session.getAttribute("admin");
+        Admin a = (Admin) session.getAttribute("usersession");
         
-        try {
+        try {   
             request.setAttribute("admin", a);
+            List <Conseiller> AllCons = AdminDao.getAllConsByAdmin(a);
+            request.setAttribute("AllCons", AllCons);
             request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 
         } catch (Exception e) {

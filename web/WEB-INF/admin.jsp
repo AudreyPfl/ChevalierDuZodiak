@@ -5,6 +5,7 @@
 --%>
 
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,9 +30,15 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-        
+        <script>
+            function String statut(c){
+                if (c.statut = true){return "Actif"};
+                else {return "Désactivé"};
+            }
+        </script>
+
         <%@include file="navbar.jsp" %> 
-        
+
         <div class="container">
             <div class="card text-white bg-dark mb-3 text-center">
                 <div class="card-body">
@@ -47,55 +54,30 @@
             <h3>Gestion des conseillers</h3>
             <hr>
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier</button>
-                            
-                        </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <c:forEach items="${AllCons}" var="c">
+                            <div class="col-sm-4">
+                                <div class="card bg-light mb-3 text-center" style="max-width: 20rem;">
+                                    <div class="card-header">Id conseiller : ${c.idconseiller}</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${c.nom} ${c.prenom}</h5>
+                                        <p class="card-text">Statut : ${c.statut}</p>
+                                        <button class="btn btn-primary ">Modifier</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
-                <div class="col-sm-2">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier</button>
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier</button>
-                          
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="card bg-light mb-3 text-center" style="max-width: 28rem;">
-                        <div class="card-header">Contact</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Votre conseiller</h5>
-                            <p class="card-text">Info conseiller à récup</p>
-                            <button class="btn btn-primary ">Modifier</button>
-                            
-                        </div>
-                    </div>
-                </div>
+
+
+
                 <div class="col-sm-4">
                     <br><br><br>
                     <button class="btn btn-secondary btn-block" onclick="location.href = 'inscriptionConseiller'">Ajouter un conseiller</button>
                     <br>
-                </div>
+                    </forEach></div>
             </div>
         </div>
         <div class="container">
@@ -107,14 +89,14 @@
                                 <th>Conseiller</th>
                                 <th>Type d'action</th>
                                 <th>Date</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
                         <td>info conseiller à recup</td>
                         <td>info conseiller à récup</td>
                         <td>info conseiller à récup</td>
-                        
+
                         </tbody>
                     </table>
                 </div>
@@ -126,10 +108,10 @@
         </div>
         <div class="container">
             <div class="row">
-                
-                
-                
-                
+
+
+
+
             </div>
 
         </div>
