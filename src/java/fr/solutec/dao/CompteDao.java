@@ -7,6 +7,7 @@ package fr.solutec.dao;
 
 import fr.solutec.bean.Client;
 import fr.solutec.bean.Compte;
+import fr.solutec.bean.Historique;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -86,6 +87,31 @@ public class CompteDao {
             co.setSolde(rs.getDouble("solde"));
             
             result.add(co);
+        }
+                
+        return result;       
+    }
+    
+    public static List<Historique> getAllHistoByCompte(int id) throws SQLException{
+        List<Historique> result = new ArrayList<>();
+        
+        
+        String sql = "SELECT * FROM historique h INNER JOIN typehisto t ON h.idtypeHisto = t.idtypeHisto WHERE idcompte =" + id ;
+        Connection connexion = AccessBD.getConnection();
+       
+        Statement requete = connexion.createStatement();
+        
+        ResultSet rs = requete.executeQuery(sql);
+        
+        while(rs.next()){
+            Historique h = new Historique();
+            h.setIdhistorique(rs.getInt("idhistorique"));
+            h.setDate(rs.getDate("date"));
+            h.setIdtypeHisto(rs.getInt("idtypeHisto"));
+            h.setIdcompte(rs.getInt("idcompte"));
+            h.setType(rs.getString("type"));
+                        
+            result.add(h);
         }
                 
         return result;       

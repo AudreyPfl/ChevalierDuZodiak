@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 10 oct. 2019 à 12:11
+-- Généré le :  ven. 11 oct. 2019 à 07:34
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -95,14 +95,15 @@ CREATE TABLE IF NOT EXISTS `compte` (
   UNIQUE KEY `carte_UNIQUE` (`carte`),
   UNIQUE KEY `idcompte_UNIQUE` (`idcompte`),
   KEY `fk_client2_idx` (`idclient`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
 INSERT INTO `compte` (`idcompte`, `solde`, `carte`, `statut`, `decouvert`, `idclient`) VALUES
-(1, '0', 1, 1, 0, 1);
+(1, '0', 1, 1, 0, 1),
+(2, '20', 2, 1, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -145,12 +146,25 @@ CREATE TABLE IF NOT EXISTS `historique` (
   `idconseiller` int(11) DEFAULT NULL,
   `idclient` int(11) DEFAULT NULL,
   `idtypeHisto` int(11) NOT NULL,
+  `idcompte` int(11) DEFAULT NULL,
   PRIMARY KEY (`idhistorique`),
   KEY `fk_admin2_idx` (`idadmin`),
   KEY `fk_conseiller2_idx` (`idconseiller`),
   KEY `fk_client1_idx` (`idclient`),
-  KEY `fk_typeHisto1_idx` (`idtypeHisto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_typeHisto1_idx` (`idtypeHisto`),
+  KEY `fk_compte1_idx` (`idcompte`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `historique`
+--
+
+INSERT INTO `historique` (`idhistorique`, `date`, `idadmin`, `idconseiller`, `idclient`, `idtypeHisto`, `idcompte`) VALUES
+(1, '2019-01-05 00:00:00', NULL, NULL, NULL, 1, 1),
+(2, '2019-05-24 00:00:00', NULL, NULL, NULL, 2, 1),
+(3, '2019-09-15 00:00:00', NULL, NULL, NULL, 3, 1),
+(4, '2019-03-05 00:00:00', NULL, NULL, NULL, 3, 2),
+(5, '2019-04-21 00:00:00', NULL, NULL, NULL, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -163,7 +177,16 @@ CREATE TABLE IF NOT EXISTS `typehisto` (
   `idtypeHisto` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   PRIMARY KEY (`idtypeHisto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `typehisto`
+--
+
+INSERT INTO `typehisto` (`idtypeHisto`, `type`) VALUES
+(1, 'Virement'),
+(2, 'Retrait'),
+(3, 'Dépôt');
 
 --
 -- Contraintes pour les tables déchargées
@@ -193,6 +216,7 @@ ALTER TABLE `conseiller`
 ALTER TABLE `historique`
   ADD CONSTRAINT `fk_admin2` FOREIGN KEY (`idadmin`) REFERENCES `admin` (`idadmin`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_client1` FOREIGN KEY (`idclient`) REFERENCES `client` (`idclient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_compte1` FOREIGN KEY (`idcompte`) REFERENCES `compte` (`idcompte`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_conseiller2` FOREIGN KEY (`idconseiller`) REFERENCES `conseiller` (`idconseiller`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_typeHisto1` FOREIGN KEY (`idtypeHisto`) REFERENCES `typehisto` (`idtypeHisto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;

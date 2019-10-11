@@ -96,6 +96,7 @@ public class ConnexionServlet extends HttpServlet {
                 request.getSession(true).setAttribute("usersession", cl);
                 
                 response.sendRedirect("espaceclient");}
+            
             else if (co != null){
                 request.getSession(true).setAttribute("usersession", co);
                 response.sendRedirect("espaceconseiller");}

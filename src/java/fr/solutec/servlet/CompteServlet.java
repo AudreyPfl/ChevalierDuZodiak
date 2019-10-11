@@ -8,10 +8,12 @@ package fr.solutec.servlet;
 import fr.solutec.bean.Client;
 import fr.solutec.bean.Compte;
 import fr.solutec.bean.Conseiller;
+import fr.solutec.bean.Historique;
 import fr.solutec.dao.CompteDao;
 import fr.solutec.dao.ConseillerDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,14 +73,16 @@ public class CompteServlet extends HttpServlet {
            HttpSession session = request.getSession(true);
             Client c = (Client) session.getAttribute("client");
             
-            List<Compte> comptes = CompteDao.getAllCompteByClient(c);
             Conseiller cons = ConseillerDao.getConsByClient(c);
             
-            request.setAttribute("listecompte", comptes);
-            
             request.setAttribute("client", c);
-            
             request.setAttribute("cons", cons);
+            String idc = request.getParameter("id");
+            int id = Integer.parseInt(idc);
+            
+            List<Historique> hi = new ArrayList<>();
+            
+            hi = CompteDao.getAllHistoByCompte(id);
             
             
             request.getRequestDispatcher("WEB-INF/comptes.jsp").forward(request, response);
@@ -104,7 +108,34 @@ public class CompteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            
+           HttpSession session = request.getSession(true);
+            Client c = (Client) session.getAttribute("client");
+            
+            Conseiller cons = ConseillerDao.getConsByClient(c);
+            
+            request.setAttribute("client", c);
+            request.setAttribute("cons", cons);
+            String idc = request.getParameter("idrec");
+            int id = Integer.parseInt(idc);
+            
+            String dec = request.getParameter("dec");
+            Double deco = Double.parseDouble(dec);
+            request.setAttribute("deco", deco);
+            
+            List<Historique> hi = new ArrayList<>();
+            hi = CompteDao.getAllHistoByCompte(id);
+            
+            request.setAttribute("hi", hi);
+            
+            request.getRequestDispatcher("WEB-INF/comptes.jsp").forward(request, response);
+            
+        } catch (Exception e) {
+            PrintWriter out = response.getWriter();
+            out.println(e.getMessage());
+        }
+        
     }
 
     /**
