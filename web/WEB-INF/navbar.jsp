@@ -96,34 +96,50 @@
                                         out.println(p.getNom());
                                     %>
 
-                                <br><hr></p>
+                                <hr></p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <p class= "text-center">
+                                    <%
+                                        out.println(p.getPrenom());
+                                    %>
+
+                                <hr></p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <p class= "text-center">
+                                    <%
+                                        out.println(p.getEmail());
+                                    %>
+
+                                <hr></p>
+
+                            </div>
+                            <div class="form-group">
+                                <p class= "text-center">
+                                    <%
+                                        out.println(p.getSexe());
+                                    %>
+
+                                <hr></p>
 
                             </div>
                             <br>
+                            <div class="form-group">
+                                <input class="form-control text-center"
+                                       name="mdp" value="${param['mdp']}"
+                                       type="password" placeholder="mot de passe" required="">
+                            </div>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choisir photo</label>
+                            </div>
 
-                            <div class="form-group">
-                                <input class="form-control text-center"
-                                       name="mail" value="<% out.println(p.getEmail() + "dans ta face java");%>"
-                                       type="email" placeholder="mail" required="">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <input class="form-control text-center"
-                                       name="mdp" value="${param['mdp']}"
-                                       type="password" placeholder="mot de passe" required="">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <input class="form-control text-center"
-                                       name="mdp" value="${param['mdp']}"
-                                       type="password" placeholder="mot de passe" required="">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <input class="form-control text-center"
-                                       name="mdp" value="${param['mdp']}"
-                                       type="password" placeholder="mot de passe" required="">
-                            </div>
 
                     </div>
                     <div class="modal-footer">

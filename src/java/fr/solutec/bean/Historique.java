@@ -18,6 +18,8 @@ public class Historique {
     private int idconseiller;
     private int idclient;
     private int idtypeHisto;
+    private int idcompte;
+    private String type;
 
     public Historique() {
     }
@@ -36,6 +38,39 @@ public class Historique {
         this.idadmin = idadmin;
         this.idtypeHisto = idtypeHisto;
     }
+
+    public Historique(int idhistorique, Date date, int idadmin, int idconseiller, int idclient, int idtypeHisto, int idcompte) {
+        this.idhistorique = idhistorique;
+        this.date = date;
+        this.idadmin = idadmin;
+        this.idconseiller = idconseiller;
+        this.idclient = idclient;
+        this.idtypeHisto = idtypeHisto;
+        this.idcompte = idcompte;
+    }
+
+    public Historique(int idhistorique, Date date, int idadmin, int idconseiller, int idclient, int idtypeHisto, int idcompte, String type) {
+        this.idhistorique = idhistorique;
+        this.date = date;
+        this.idadmin = idadmin;
+        this.idconseiller = idconseiller;
+        this.idclient = idclient;
+        this.idtypeHisto = idtypeHisto;
+        this.idcompte = idcompte;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    
+    
+    
 
     public int getIdhistorique() {
         return idhistorique;
@@ -84,6 +119,16 @@ public class Historique {
     public void setIdtypeHisto(int idtypeHisto) {
         this.idtypeHisto = idtypeHisto;
     }
+
+    public int getIdcompte() {
+        return idcompte;
+    }
+
+    public void setIdcompte(int idcompte) {
+        this.idcompte = idcompte;
+    }
+    
+    
 
     @Override
     public String toString() {

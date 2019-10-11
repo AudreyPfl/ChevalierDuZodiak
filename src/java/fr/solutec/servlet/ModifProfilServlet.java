@@ -42,7 +42,7 @@ public class ModifProfilServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ModifProfilServlet</title>");            
+            out.println("<title>Servlet ModifProfilServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ModifProfilServlet at " + request.getContextPath() + "</h1>");
@@ -63,57 +63,7 @@ public class ModifProfilServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        Client cl = (Client) session.getAttribute("client");
-        Conseiller co = (Conseiller) session.getAttribute("conseiller");
-        Admin ad = (Admin) session.getAttribute("client");
-        
-        try {
-            
-        
-        
-        if (cl != null){
-            String nom = cl.getNom();
-            String prenom = cl.getPrenom();
-            String mdp = cl.getMdp();
-            String mail = cl.getEmail();
-            String sexe = cl.getSexe();
-            Personne p = new Personne(nom, prenom, mail, sexe, mdp);
-            request.setAttribute("personne", p);
-            request.getRequestDispatcher("WEB-INF/navbar.jsp").forward(request, response);                          
-        }
-        
-        else if (co != null){
-            String nom = co.getNom();
-            String prenom = co.getPrenom();
-            String mdp = co.getMdp();
-            String mail = co.getEmail();
-            String sexe = co.getSexe();
-            Personne p = new Personne(nom, prenom, mail, sexe, mdp);
-            request.setAttribute("personne", p);
-            request.getRequestDispatcher("WEB-INF/navbar.jsp").forward(request, response);                          
-        }
-        
-        else if (ad != null){
-            String nom = ad.getNom();
-            String prenom = ad.getPrenom();
-            String mdp = ad.getMdp();
-            String mail = ad.getEmail();
-            String sexe = ad.getSexe();
-            Personne p = new Personne(nom, prenom, mail, sexe, mdp);
-            request.setAttribute("personne", p);
-            request.getRequestDispatcher("WEB-INF/navbar.jsp").forward(request, response);                          
-        }
-        else {
-            request.getRequestDispatcher("WEB-INF/navbar.jsp").forward(request, response);
-        }
-        }
-        
-        catch (Exception e) {
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
-        }
-        
+
     }
 
     /**
@@ -127,7 +77,7 @@ public class ModifProfilServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+        String mdp = request.getParameter("mdp");
     }
 
     /**
