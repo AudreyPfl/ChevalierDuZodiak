@@ -22,17 +22,23 @@
         <nav class="navbar navbar-dark bg-dark ">
             <a class="navbar-brand" style="color: white">BangBank</a>
             <form class="form-inline">
-                <button  class="btn btn-primary" style="color: darkturquoise" id="connect1">Se connecter</button>
+                <button  class="btn btn-primary" type="button" style="color: darkturquoise" id="connect">Se connecter</button>
             </form>
         </nav>
     </div>
+    <script>
+            $("#connect").on("click", function (e) {
+                e.preventDefault();
+                $('#connection').modal('show');
+            });
+        </script>
 
     <script>
         function popUp(){
             alert("Votre demande d'inscription a bien été enregistrée!");
         }
     </script>
-    <div class="modal fade" id="connection1" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
+    <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">

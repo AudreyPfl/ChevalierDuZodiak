@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -80,13 +81,16 @@ public class InscriptionConseillerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         
+        HttpSession session = request.getSession(true);
+        Admin ad = (Admin) session.getAttribute("usersession");
+        
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String email = request.getParameter("email");
         String sexe = request.getParameter("sexe");
         String mdp = request.getParameter("mdp");
         boolean statut = true;
-        int idadmin = 1;
+        int idadmin = ad.getIdadmin();
         Conseiller cons = new Conseiller(idadmin, statut, nom, prenom, email, sexe, mdp);
         
         try {    

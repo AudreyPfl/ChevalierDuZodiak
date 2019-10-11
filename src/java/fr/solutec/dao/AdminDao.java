@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
 
 /**
  *
@@ -41,4 +43,33 @@ public class AdminDao {
         }
         return resultat;
     }
+    
+    public static List <Conseiller> getAllConsByAdmin(Admin ad) throws SQLException{
+        List <Conseiller> AllCons = new ArrayList<>(); 
+        
+        int Idadmin = ad.getIdadmin();
+        
+        String sql = "SELECT * FROM conseiller WHERE idadmin =" + Idadmin;
+        Connection connexion = AccessBD.getConnection();
+        
+        Statement requette = connexion.createStatement();
+        
+        ResultSet rs = requette.executeQuery(sql);
+        
+        while (rs.next()){
+            Conseiller cons = new Conseiller();
+            cons.setIdconseiller(rs.getInt("idconseiller"));
+            cons.setNom(rs.getString("nom"));
+            cons.setPrenom(rs.getString("prenom"));
+            cons.setEmail(rs.getString("email"));
+            cons.setSexe(rs.getString("sexe"));
+            cons.setMdp(rs.getString("mdp"));
+            cons.setIdadmin(rs.getInt("idadmin"));
+            cons.setStatut(rs.getBoolean("statut"));
+            
+            AllCons.add(cons);
+        }
+        return AllCons;
+    }
+            
 }
