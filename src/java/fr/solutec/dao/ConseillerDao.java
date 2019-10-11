@@ -78,6 +78,48 @@ public class ConseillerDao {
                 
         return cons;       
     }
+        
+        public static void ActDesact(Conseiller cons) throws SQLException{
+            int id = cons.getIdconseiller();
+            
+        String sql = "SELECT statut FROM conseiller WHERE idconseiller=" + id ;
+        Connection connexion = AccessBD.getConnection();
+       
+        Statement requete = connexion.createStatement();
+        
+        ResultSet rs = requete.executeQuery(sql);
+        
+        if(rs.next()){
+            cons.setStatut(rs.getBoolean("statut"));
+            
+        }
+        
+        if(cons.isStatut()){
+            
+            String sql2 = "UPDATE conseiller SET statut =0 WHERE idconseiller=" + id ;
+            
+        Connection connexion2 = AccessBD.getConnection();
+       
+        Statement requete2 = connexion2.createStatement();
+        
+        ResultSet rs2 = requete2.executeQuery(sql2);
+        
+        }else{
+            String sql3 = "UPDATE conseiller SET statut =1 WHERE idconseiller=" + id ;
+            
+        Connection connexion3 = AccessBD.getConnection();
+       
+        Statement requete3 = connexion3.createStatement();
+        
+        ResultSet rs3 = requete3.executeQuery(sql3);
+            
+        }
+    
+    
+    
+    
+    }
+    
    
     public static List <Client> getAllClientByCons(Conseiller cons) throws SQLException{
         List <Client> AllClient = new ArrayList<>(); 
