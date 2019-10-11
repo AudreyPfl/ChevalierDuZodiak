@@ -117,7 +117,7 @@ public class ConseillerDao {
     }
     
    
-    public static List <Client> getAllClientByCons(Conseiller cons) throws SQLException{
+    /*public static List <Client> getAllClientByCons(Conseiller cons) throws SQLException{
         List <Client> AllClient = new ArrayList<>(); 
         
         int Idcons = cons.getIdconseiller();
@@ -143,5 +143,5 @@ public class ConseillerDao {
             AllClient.add(client);
         }
         return AllClient;
-    }
+    }*/
 }
