@@ -83,6 +83,8 @@ public class UserDao {
         requette.execute();
        
     }
+    
+   
     /*
      public static List<Client> getAllClient() throws SQLException {
      List<Client> result = new ArrayList<>();
