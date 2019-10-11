@@ -27,7 +27,7 @@
                 <a class="navbar-brand" style="color: white">BangBank</a>
                 <form class="form-inline">
                     <button class="btn btn-primary" style="color: darkturquoise" id="inscrire" >S'inscrire</button>
-                    <button  class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
+                    <button type="button"   class="btn btn-primary" style="color: darkturquoise" id="connect">Se connecter</button>
                 </form>
             </nav>
         </div>
@@ -41,6 +41,7 @@
                 e.preventDefault();
                 location.href = 'inscription';
             });
+            
 
         </script>
         <div class="modal fade" id="connection" tabindex="-1" role="dialog" aria-labelledby="connection" aria-hidden="true">
@@ -75,18 +76,18 @@
 
                         </div>
                     </form>
-                    <p class="text-danger">${msg}</p> 
+                    <p class="text-danger" style="text-align: center">${msg}</p> 
                 </div>
             </div>
 
 
         </div>
-                <br><br><br><br><br><br><br><br><br><br>
-                <div>
-                    <img src="Ressources/tirelire.png" class="rounded mx-auto d-block" width="500" height="500">
-                    
-                    
-                </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div>
+            <img src="Ressources/tirelire.png" class="rounded mx-auto d-block" width="500" height="500">
+
+
+        </div>
 
 
 
