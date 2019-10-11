@@ -67,6 +67,22 @@ public class UserDao {
         }
         return c;
     }
+    public static void insertConseiller(Conseiller cons) throws SQLException {
+        
+        String sql = "INSERT INTO conseiller (nom, prenom, email, sexe, mdp, idadmin, statut) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        Connection connexion = AccessBD.getConnection();
+        PreparedStatement requette = connexion.prepareStatement(sql);
+        requette.setString(1, cons.getNom());
+        requette.setString(2, cons.getPrenom());
+        requette.setString(3, cons.getEmail());
+        requette.setString(4, cons.getSexe());
+        requette.setString(5, cons.getMdp());
+        requette.setInt(6, cons.getIdadmin());
+        requette.setBoolean(7, cons.isStatut());
+        
+        requette.execute();
+       
+    }
     /*
      public static List<Client> getAllClient() throws SQLException {
      List<Client> result = new ArrayList<>();
